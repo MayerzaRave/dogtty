@@ -1,0 +1,2 @@
+class DeseasesController < ApplicationController
+end
