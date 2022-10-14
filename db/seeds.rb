@@ -52,6 +52,7 @@ i = 0
   care.title = CARES.sample
   care.details = Faker::Lorem.paragraph
   care.pet = pet
+  care.save
 
   desease = Desease.new
   desease.name = Faker::Lorem.word
