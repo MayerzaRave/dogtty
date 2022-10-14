@@ -116,6 +116,8 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (6.2.0)
       sassc (~> 2.0)
@@ -273,6 +275,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker (~> 2.23)
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
@@ -293,4 +296,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.2.32
+   2.3.23
