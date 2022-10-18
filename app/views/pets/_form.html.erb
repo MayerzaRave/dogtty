@@ -1,0 +1,14 @@
+<%= simple_form_for @pet do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :specie %>
+    <%= f.input :birthday %>
+    <%= f.input :weight %>
+    <%= f.input :breed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Edit' %>
+  </div>
+<% end %>
