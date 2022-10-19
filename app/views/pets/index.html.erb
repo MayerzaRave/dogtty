@@ -1,5 +1,6 @@
+<h3><%= current_user.email %></h3>
 <% @pets.each do |pet| %>
-<%= link_to pet.name, pet_path(pet) %> <br>
+<%= link_to pet.name, pet_path(pet) if pet.user_id == current_user.id%> <br>
 <% end %>
 
-<%= link_to "new pet", new_pet_path %>
+<div><%= link_to "New Pet", new_pet_path , class: "" %></div>
