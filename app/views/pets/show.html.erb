@@ -2,6 +2,8 @@
   <% if @pet.photo.attached? %>
     <%= cl_image_tag @pet.photo.key, class: "card-img-top" %>
   <% else %>
-    <%= image_tag "puppy.png", size: "auto", style: "border-radius: 5%", class: "card-img-top"%>
+    <%= image_tag "pet.jpg", size: "auto", style: "border-radius: 5%", class: "card-img-top"%>
   <% end %>
 </div>
+
+<div><%= link_to "Return Pets", pets_path, data: {turbo_method: :get} , class: "dropdown-item" %></div>
