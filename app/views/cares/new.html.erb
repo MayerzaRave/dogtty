@@ -1,6 +1,7 @@
-<%= simple_form_for [@pet, @care] do |f| %>
+<%= simple_form_for @care do |f| %>
   <div class="form-inputs">
     <div class="form-field">
+      <%= f.association :pet, as: :check_boxes, collection: @pets %>
       <%= f.input :category, collection: CATEGORIES, class: "input-text"%>
     </div>
   </div>
