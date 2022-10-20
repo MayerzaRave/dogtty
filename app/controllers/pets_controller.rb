@@ -19,6 +19,22 @@ class PetsController < ApplicationController
     end
   end
   
+  def new
+    @pet = Pet.new
+  end
+
+  def create
+    @pet = Pet.new(pet_params)
+    @pet.user_id = current_user.id
+
+    if @pet.save
+      redirect_to @pet, notice: 'Pet was successfully created!'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def set_pet
