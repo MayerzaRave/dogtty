@@ -1,4 +1,4 @@
-<div class="card style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <% if @pet.photo.attached? %>
     <%= cl_image_tag @pet.photo.key, class: "card-img-top" %>
   <% else %>
