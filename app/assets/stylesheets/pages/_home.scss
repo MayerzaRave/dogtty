@@ -1,1 +1,64 @@
 // Specific CSS for your home-page
+body {
+  background-color: #89c4ff;
+}
+
+.main-container {
+  width: 95%;
+  margin: 46px auto;
+  border-radius: 21px;
+}
+
+.banner {
+  background-color: #5a5aff;
+  height: 360px;
+}
+
+.banner #info {
+  padding-left: 60px;
+  padding-top: 42px;
+}
+
+.banner #info h1 {
+  font-weight: bolder;
+}
+
+.banner .img-info {
+  margin-left: 60px;
+}
+
+.banner .btn {
+  background-color: #F36F86;
+  border: 1px solid #F36F86;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bolder;
+  color: white;
+}
+
+#services {
+  background-color: white;
+}
+
+.img {
+  object-fit: contain;
+  width: 200px
+}
+
+// section .container {
+//   margin: 0;
+//   padding: 0;
+//   min-height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+// }
+
+// <div class="container">
+// <div class="row">
+//   <div class="col-lg-12 text-center">
+//     <h2 class="section-heading mt-4">Our Services</h2>
+//   </div>
+// </div>
+// </div>

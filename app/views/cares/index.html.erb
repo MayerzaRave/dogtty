@@ -1,1 +1,16 @@
-<h1>Hola</h1>
+<h3><%= current_user.email %></h3>
+<% @pets.each do |pet| %>
+    <div>
+    <h4><%= pet.name %></h4>
+    <% @cares.each do |care| %>
+        <% if care.pet_id == pet.id %>
+            <%= link_to care.title, care_path(care)%>
+            <%= link_to "Delete", care_path(care), data: {turbo_method: :delete}%>
+        <% end %>
+    <% end %>
+    <br>
+    </div>
+<% end %>
+
+
+<div><%= link_to "New Care", new_care_path , class: "" %></div>
