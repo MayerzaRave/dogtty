@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="mt-5">
+  <%= week_calendar(number_of_weeks: 2) do |date| %>
+    <%= date %>
+  <% end %>
+</div>
