@@ -2,4 +2,60 @@
   <%= week_calendar(number_of_weeks: 2) do |date| %>
     <%= date %>
   <% end %>
+
+  <%= render "shared/navbar" %>
+  <div class="banner">
+    <div class="row">
+      <div id="info" class="col-md-6 col-lg-6 text-white" data-aos="fade-right">
+        <h1>Saving animals.</h1>
+        <h1>Changing lives</h1>
+        <p>Today can everyone help animals and make their lives better.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, amet sequi?</p>
+        <%= link_to 'I want to help', "#", class: 'btn' %>
+      </div>
+      <div class="col-md-6 col-lg-5 ml-lg-auto mz-4 img-info" data-aos="zoom-in">
+        <%= image_tag "owner.svg" %>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading mt-4">Our Services</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 text-center">
+          <div class="mx-auto service-box mt-5">
+              <%= image_tag "animal.svg" %>
+            <h3 class="mb-3">Alimentación</h3>
+            <p class="text-muted mb-0">Nuestras Alimentación son demasiado buenos nada mas</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 text-center">
+          <div class="mx-auto service-box mt-5">
+            <%= image_tag "walking.svg", class: "img" %>
+            <h3 class="mb-3">Paseos</h3>
+            <p class="text-muted mb-0">Nuestros paseos son demasiado buenos nada mas</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 text-center">
+          <div class="mx-auto service-box mt-5">
+            <i class="text-primary"><%= image_tag "vaccine.png", class: "img" %></i>
+            <h3 class="mb-3">Veterinarias</h3>
+            <p class="text-muted mb-0">Nuestras Veterinarias son demasiado buenos nada mas</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<%# opcional card design  %>
+<div class="col-lg-12 main-container">
 </div>
