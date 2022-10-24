@@ -1,18 +1,24 @@
 <div class = "container my-5">
-    <div class = "row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-        <h1 class = "display-2 fw-bold lh-1"><%= @pet.name%></h1>
-        <h3 class = "fw-bold"><%= @care.category %></h3>
+    <div class = "row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-light text-center">
+        <h1 class = "display-2 fw-bold lh-1 mb-0"><%= @pet.name%></h1>
+        <h3 class = "fw-bold mb-0"><%= @care.category %></h3>
         <br>
         <div>
-            <h4><%= @care.schedule %></h4>
-            <h4><%= @care.title%></h4>
-            <h4><%= @care.details%></h4>
-            <h4><%= @care.status %></h4>
+            <h4 class = "mb-0"><%= @care.schedule %></h4>
+            <h4 class = "mb-0"><%= @care.title%></h4>
+            <h4 class = "mb-0 text-secondary"><%= @care.details%></h4>
+            <h4 class = "mb-0 text-black-50"><%= @care.status %></h4>
         </div>
         <p><%= @care.id %></p>
-        <div class = "d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <%= button_to "Accomplished", care_path(@care), data: {turbo_method: :patch}, params: {service: "Acoomplished"}, class: "col mx-auto" %>
-            <%= button_to "Delete", care_path(@care), data: {turbo_method: :delete} , class:"col mx-auto"%>
+        <div class = "d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3 align-items-center">
+            <div class = "col align-self-center">
+                <div class = "row">
+                    <div class = "col"></div>
+                    <div class = "col"><%= link_to "Accomplished", care_path(@care), data: {turbo_method: :patch}, params: {other: "other"}, class: "col me-md-2 btn btn-primary" %></div>
+                    <div class = "col"><%= link_to "Delete", care_path(@care), data: {turbo_method: :delete} , class:"col btn btn-danger"%></div>
+                    <div class = "col"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -22,9 +22,8 @@ class CaresController < ApplicationController
 
   def update
     @care = Care.find(params[:id])
-    @care.update(status: "Accomplished")
+    @care.update(status: "Accomplished", title: care_params(:other))
     redirect_to cares_path, notice: 'Service was successfully updated!'
-    @care.save
   end
 
   def create
@@ -44,7 +43,8 @@ class CaresController < ApplicationController
     @pets = Pet.where(user: current_user)
   end
 
-  def care_params
-    params.require(:care).permit(:pet_id, :category, :schedule, :status, :title, :details)
+  def care_params(element)
+    object = params.require(:care).permit(:pet_id, :category, :schedule, :status, :title, :details, :other)
+    object[element]
   end
 end
