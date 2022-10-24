@@ -1,16 +1,42 @@
-<h3><%= current_user.email %></h3>
-<% @pets.each do |pet| %>
-    <div>
-    <h4><%= pet.name %></h4>
+<div class="container">
+
+  <% @pets.each do |pet| %>
     <% @cares.each do |care| %>
-        <% if care.pet_id == pet.id %>
-            <%= link_to care.title, care_path(care)%>
-            <%= link_to "Delete", care_path(care), data: {turbo_method: :delete}%>
-        <% end %>
+      <% if care.pet_id == pet.id %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="carding mb-2">
+              <div class="carding-header no-border">
+                <h5><%= care.created_at.day %></h5>
+              </div>
+              <div class="carding-body pt-0">
+                <div class="widget-49">
+                    <div class="general-info">
+                      <div class="schedule">
+                        <span class="date-day"><%= care.schedule.day %></span>
+                        <span class="date-month"><%= care.schedule.month %></span>
+                      </div>
+                      <div class="info-care">
+                        <span class="title">Cuidado: <%= care.title %></span>
+                        <span class="category">Categoria: <%= care.category %></span>
+                      </div>
+                    </div>
+                    <ol class="info-list">
+                      <li class="info-pet"><span>Mascota: <%= pet.name %></span></li>
+                      <li class="info-pet"><span>Especie: <%= pet.specie %></span></li>
+                      <li class="info-pet"><span>Raza: <%= pet.breed %></span></li>
+                    </ol>
+                    <div class="redirect">
+                      <%= link_to 'Mas Detalles', care_path(care), class: 'btn btn-sm btn-flash-border-primary' %>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-    <br>
-    </div>
-<% end %>
+  <% end %>
+</div>
 
-
-<div><%= link_to "New Care", new_care_path , class: "" %></div>
+<%= link_to "New Care", new_care_path , class: "mx-2" %>
