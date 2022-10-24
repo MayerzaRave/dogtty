@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 
       @cares = current_user.cares
       @cares = @cares.select { |care| care.status == 'scheduled' }
+    else
+      @cares = []
     end
   end
 
