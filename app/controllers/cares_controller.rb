@@ -23,9 +23,8 @@ class CaresController < ApplicationController
 
   def update
     @care = Care.find(params[:id])
-    @care.update(status: "Accomplished")
+    @care.update(status: "Accomplished", title: care_params(:other))
     redirect_to cares_path, notice: 'Service was successfully updated!'
-    @care.save
   end
 
   def create
