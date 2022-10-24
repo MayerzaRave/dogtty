@@ -1,0 +1,9 @@
+<p>Hello</p>
+<p><%= @care.category %></p>
+<p><%= @care.schedule %></p>
+<p><%= @care.status %></p>
+<p><%= @care.title%></p>
+<p><%= @care.details%></p>
+<p><%= @pet.name%></p>
+<%= link_to "Accomplished", care_path(@care), data: {turbo_method: :patch}, params: {service: "Acoomplished"}  %>
+<%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}%>

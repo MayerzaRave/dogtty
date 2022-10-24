@@ -1,4 +1,9 @@
-<%= render "shared/navbar" %>
+<div class="mt-5">
+  <%= week_calendar(number_of_weeks: 2) do |date| %>
+    <%= date %>
+  <% end %>
+
+  <%= render "shared/navbar" %>
   <div class="banner">
     <div class="row">
       <div id="info" class="col-md-6 col-lg-6 text-white" data-aos="fade-right">
