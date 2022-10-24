@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_172248) do
 
   create_table "cares", force: :cascade do |t|
     t.string "category"
-    t.date "schedule"
+    t.datetime "schedule"
     t.string "status"
     t.string "title"
     t.text "details"

@@ -3,11 +3,11 @@
 <div class="banner">
   <div class="row">
     <div id="info" class="col-md-6 col-lg-6 text-white" data-aos="fade-right">
-      <h1>Saving animals,</h1>
-      <h1>Changing lives!</h1>
-      <p>Today can everyone help animals and make their lives better.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, amet sequi?</p>
-      <%= link_to 'Create an account', new_user_registration_path, class: 'btn' %>
+      <h1>We help you take care</h1>
+      <h1>ff those you love the most</h1>
+      <p>For everyone who wants paws in their houses,</p>
+      <p>Dogtty comes to make It easier!</p>
+      <%= link_to 'Schedule a Care', new_care_path, class: 'btn' %>
     </div>
     <div class="col-md-6 col-lg-5 ml-lg-auto mz-4 img-info" data-aos="zoom-in">
       <%= image_tag "owner.svg" %>
@@ -16,50 +16,117 @@
 </div>
 
 
-<section id="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading mt-4">Schedule a Care</h2>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-4 text-center">
-        <div class="mx-auto service-box mt-5">
-          <%= image_tag "animal.svg" %>
-          <h3 class="mb-3">Alimentación</h3>
-          <p class="text-muted mb-0">Nuestras Alimentación son demasiado buenos nada mas</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 text-center">
-        <div class="mx-auto service-box mt-5">
-          <%= image_tag "walking.svg", class: "img" %>
-          <h3 class="mb-3">Paseos</h3>
-          <p class="text-muted mb-0">Nuestros paseos son demasiado buenos nada mas</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 text-center">
-        <div class="mx-auto service-box mt-5">
-          <i class="text-primary"><%= image_tag "vaccine.png", class: "img" %></i>
-          <h3 class="mb-3">Veterinarias</h3>
-          <p class="text-muted mb-0">Nuestras Veterinarias son demasiado buenos nada mas</p>
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading my-5">What do my pets need?</h2>
         </div>
       </div>
     </div>
+
+  <div class="row" style="justify-content: space-around;">
+
+    <div class="card">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "walking.svg", class: 'walking' %>
+        </div>
+        <h4>Time togueter</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#"><%= link_to 'Vaccunation', new_care_path(params: { category: 'health', title: 'vaccunation' }) %></a></li>
+        <li><a href="#"><%= link_to 'Shower', new_care_path(params: { category: 'health', title: 'shower' }) %></a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "vaccine.png", class: 'walking' %>
+        </div>
+        <h4>Health</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#"><%= link_to 'Vacunación', new_care_path(@care, params: {care: 'vaccunation'})  %></li>
+        <li><a href="#"><%= link_to 'Baños', new_care_path(@care, params: {care: 'shower'}) %></a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle toggle2">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card3">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "facepalm.svg", class: 'walking' %>
+        </div>
+        <h4>Beauty</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle toggle3">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
   </div>
-</section>
+
+    <script>
+      const card = document.querySelector(".card");
+      const cardToggle = document.querySelector(".toggle");
+
+      cardToggle.onclick = function () {
+        card.classList.toggle("active");
+      };
+
+    </script>
+
+    <script>
+      const card2 = document.querySelector(".card2");
+      const cardToggle2 = document.querySelector(".toggle2");
+
+      cardToggle2.onclick = function () {
+        card2.classList.toggle("active");
+      };
+    </script>
+
+    <script>
+      const card3 = document.querySelector(".card3");
+      const cardToggle3 = document.querySelector(".toggle3");
+
+      cardToggle3.onclick = function () {
+        card3.classList.toggle("active");
+      };
+    </script>
+  </section>
+
 
 <div class="container">
   <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
-    <%= date %>
-
-
-      <% cares.each do |care| %>
+    <%# <%= date %>
+    <% cares.each do |care| %>
     <div>
-      <%= care.title %>
+      <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
+      <%= link_to care.title, care_path(care)%>
     </div>
   <% end %>
   <% end %>
 </div>
+
+  <footer class="mb-3" style="text-align: center;">
+    <h5 class="mt-4">Made with 💙 by Dogtty team</h5>
+    <%= link_to 'Conocenos', about_path, class: 'about' %>
+    Todos los derechos reservados | Doggty 2022
+  </footer>
