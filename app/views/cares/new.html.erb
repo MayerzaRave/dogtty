@@ -1,13 +1,20 @@
-<%= simple_form_for @care do |f| %>
-  <div class="form-inputs">
-    <div class="form-field">
-      <%= f.association :pet, as: :check_boxes, collection: @pets %>
-      <%= f.input :category, collection: CATEGORIES, class: "input-text"%>
-      <%= f.input :title, collection: CARES, input_html: {value: params['care'] }%>
-    </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Create" %>
-  </div>
-<% end %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+<div class="container mt-5">
+  <%= simple_form_for @care do |f| %>
+    <div class="form-inputs">
+      <div class="form-field">
+        <%= f.association :pet, label: 'I want this Care for 👇', as: :check_boxes, collection: @pets, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :category, collection: CATEGORIES, selected: 1, class: "input-text"%>
+        <%= f.input :title, collection: CARES, selected: 1, class: "input-text"%>
+        <%= f.input :schedule %>
+        <%= f.input :details %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Schedule!', class: 'btn btn-info' %>
+    </div>
+  <% end %>
+</div>

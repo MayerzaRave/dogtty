@@ -1,30 +1,26 @@
-<div class="mt-5">
-  <%= week_calendar(number_of_weeks: 2) do |date| %>
-    <%= date %>
-  <% end %>
+<%= render "shared/navbar" %>
 
-  <%= render "shared/navbar" %>
-  <div class="banner">
-    <div class="row">
-      <div id="info" class="col-md-6 col-lg-6 text-white" data-aos="fade-right">
-        <h1>Saving animals.</h1>
-        <h1>Changing lives</h1>
-        <p>Today can everyone help animals and make their lives better.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, amet sequi?</p>
-        <%= link_to 'I want to help', "#", class: 'btn' %>
-      </div>
-      <div class="col-md-6 col-lg-5 ml-lg-auto mz-4 img-info" data-aos="zoom-in">
-        <%= image_tag "owner.svg" %>
-      </div>
+<div class="banner">
+  <div class="row">
+    <div id="info" class="col-md-6 col-lg-6 text-white" data-aos="fade-right">
+      <h1>We help you take care</h1>
+      <h1>ff those you love the most</h1>
+      <p>For everyone who wants paws in their houses,</p>
+      <p>Dogtty comes to make It easier!</p>
+      <%= link_to 'Schedule a Care', new_care_path, class: 'btn' %>
+    </div>
+    <div class="col-md-6 col-lg-5 ml-lg-auto mz-4 img-info" data-aos="zoom-in">
+      <%= image_tag "owner.svg" %>
     </div>
   </div>
+</div>
 
 
   <section id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading mt-4">Nuestros Cuidados</h2>
+          <h2 class="section-heading my-5">What do my pets need?</h2>
         </div>
       </div>
     </div>
@@ -36,11 +32,11 @@
         <div class="profile">
           <%= image_tag "walking.svg", class: 'walking' %>
         </div>
-        <h4>Paseos</h4>
+        <h4>Time togueter</h4>
       </div>
       <ul class="nav">
-        <li><a href="#"><%= link_to 'Vacunación', new_care_path, params: {care: 'vaccunation'} %></a></li>
-        <li><a href="#"><%= link_to 'Baños', new_care_path, params: CARES.last %></a></li>
+        <li><a href="#"><%= link_to 'Vaccunation', new_care_path(params: { category: 'health', title: 'vaccunation' }) %></a></li>
+        <li><a href="#"><%= link_to 'Shower', new_care_path(params: { category: 'health', title: 'shower' }) %></a></li>
         <li><a href="#">Poner link-to al form</a></li>
         <li><a href="#">Poner link-to al form</a></li>
       </ul>
@@ -54,7 +50,7 @@
         <div class="profile">
           <%= image_tag "vaccine.png", class: 'walking' %>
         </div>
-        <h4>Salud</h4>
+        <h4>Health</h4>
       </div>
       <ul class="nav">
         <li><a href="#"><%= link_to 'Vacunación', new_care_path(@care, params: {care: 'vaccunation'})  %></li>
@@ -72,7 +68,7 @@
         <div class="profile">
           <%= image_tag "facepalm.svg", class: 'walking' %>
         </div>
-        <h4>Belleza</h4>
+        <h4>Beauty</h4>
       </div>
       <ul class="nav">
         <li><a href="#">Poner link-to al form</a></li>
@@ -116,12 +112,21 @@
     </script>
   </section>
 
-  <footer style="text-align: center;">
-    <h5 class="mt-4">Hecho con <ion-icon name="heart-outline"></ion-icon> por el equipo de Doggty</h5>
-    <%= link_to 'Conocenos', about_path, class: 'about' %>
-    Todos los derechos reservados | Doggty 2022.
-  </footer>
 
-<%# opcional card design  %>
-<div class="col-lg-12 main-container">
+<div class="container">
+  <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
+    <%# <%= date %>
+    <% cares.each do |care| %>
+    <div>
+      <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
+      <%= link_to care.title, care_path(care)%>
+    </div>
+  <% end %>
+  <% end %>
 </div>
+
+  <footer class="mb-3" style="text-align: center;">
+    <h5 class="mt-4">Made with 💙 by Dogtty team</h5>
+    <%= link_to 'Conocenos', about_path, class: 'about' %>
+    Todos los derechos reservados | Doggty 2022
+  </footer>
