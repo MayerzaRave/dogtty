@@ -33,10 +33,9 @@
         <h4>Time togueter</h4>
       </div>
       <ul class="nav">
-        <li><a href="#"><%= link_to 'Vaccunation', new_care_path(params: { category: 'health', title: 'vaccunation' }) %></a></li>
-        <li><a href="#"><%= link_to 'Shower', new_care_path(params: { category: 'health', title: 'shower' }) %></a></li>
-        <li><a href="#">Poner link-to al form</a></li>
-        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#"><%= link_to 'pet walk', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></a></li>
+        <li><a href="#"><%= link_to 'playing time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></a></li>
+        <li><a href="#"><%= link_to 'feeding', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></a></li>
       </ul>
       <div class="toggle">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
@@ -51,10 +50,9 @@
         <h4>Health</h4>
       </div>
       <ul class="nav">
-        <li><a href="#"><%= link_to 'Vacunación', new_care_path(@care, params: {care: 'vaccunation'})  %></li>
-        <li><a href="#"><%= link_to 'Baños', new_care_path(@care, params: {care: 'shower'}) %></a></li>
-        <li><a href="#">Poner link-to al form</a></li>
-        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#"><%= link_to 'vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></a></li>
+       <li><a href="#"><%= link_to 'deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></a></li>
+       <li><a href="#"><%= link_to 'consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></a></li>
       </ul>
       <div class="toggle toggle2">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
@@ -69,10 +67,8 @@
         <h4>Beauty</h4>
       </div>
       <ul class="nav">
-        <li><a href="#">Poner link-to al form</a></li>
-        <li><a href="#">Poner link-to al form</a></li>
-        <li><a href="#">Poner link-to al form</a></li>
-        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#"><%= link_to 'shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></a></li>
+        <li><a href="#"><%= link_to 'nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></a></li>
       </ul>
       <div class="toggle toggle3">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
