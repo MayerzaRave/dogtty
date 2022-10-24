@@ -13,8 +13,9 @@ class CaresController < ApplicationController
   end
 
   def index
-    @cares = Care.all
-    @pets = Pet.where(user_id: current_user.id)
+    # @cares = Care.all
+    # @pets = Pet.where(user_id: current_user.id)
+    @cares = current_user.cares
   end
 
   def destroy
@@ -22,10 +23,13 @@ class CaresController < ApplicationController
   end
 
   def update
-    @care = Care.find(params[:id])
-    @care.update(status: "Accomplished")
+    if params[:status]
+      @care.status = params[:status]
+      @care.update(params.permit(:data))
+    else
+      @care.update(care_params)
+    end
     redirect_to cares_path, notice: 'Service was successfully updated!'
-    @care.save
   end
 
   def create
@@ -34,6 +38,7 @@ class CaresController < ApplicationController
     @pets_id[1, @pets_id.size].each do |id|
       @care = Care.new(care_params)
       @care.pet = Pet.find(id.to_i)
+      @care.status = 'scheduled'
       @care.save
     end
     redirect_to root_path, notice: 'care was successfully created!'
