@@ -4,9 +4,11 @@ class PagesController < ApplicationController
   def home
     # start_date = params.fetch(:schedule, Date.today).to_date
     # @cares = Care.where(schedule: start_date.beginning_of_week..start_date.end_of_week)
+    if user_signed_in?
 
-    @cares = current_user.cares
-    @cares = @cares.select { |care| care.status == 'scheduled' }
+      @cares = current_user.cares
+      @cares = @cares.select { |care| care.status == 'scheduled' }
+    end
   end
 
   def about
