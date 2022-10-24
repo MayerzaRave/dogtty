@@ -24,37 +24,103 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading mt-4">Our Services</h2>
+          <h2 class="section-heading mt-4">Nuestros Cuidados</h2>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-4 text-center">
-          <div class="mx-auto service-box mt-5">
-              <%= image_tag "animal.svg" %>
-            <h3 class="mb-3">Alimentación</h3>
-            <p class="text-muted mb-0">Nuestras Alimentación son demasiado buenos nada mas</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-          <div class="mx-auto service-box mt-5">
-            <%= image_tag "walking.svg", class: "img" %>
-            <h3 class="mb-3">Paseos</h3>
-            <p class="text-muted mb-0">Nuestros paseos son demasiado buenos nada mas</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-          <div class="mx-auto service-box mt-5">
-            <i class="text-primary"><%= image_tag "vaccine.png", class: "img" %></i>
-            <h3 class="mb-3">Veterinarias</h3>
-            <p class="text-muted mb-0">Nuestras Veterinarias son demasiado buenos nada mas</p>
-          </div>
-        </div>
 
+  <div class="row" style="justify-content: space-around;">
+
+    <div class="card">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "walking.svg", class: 'walking' %>
+        </div>
+        <h4>Paseos</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#"><%= link_to 'Vacunación', new_care_path, params: {care: 'vaccunation'} %></a></li>
+        <li><a href="#"><%= link_to 'Baños', new_care_path, params: CARES.last %></a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
       </div>
     </div>
+
+    <div class="card card2">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "vaccine.png", class: 'walking' %>
+        </div>
+        <h4>Salud</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#"><%= link_to 'Vacunación', new_care_path(@care, params: {care: 'vaccunation'})  %></li>
+        <li><a href="#"><%= link_to 'Baños', new_care_path(@care, params: {care: 'shower'}) %></a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle toggle2">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card3">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag "facepalm.svg", class: 'walking' %>
+        </div>
+        <h4>Belleza</h4>
+      </div>
+      <ul class="nav">
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+        <li><a href="#">Poner link-to al form</a></li>
+      </ul>
+      <div class="toggle toggle3">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+  </div>
+
+    <script>
+      const card = document.querySelector(".card");
+      const cardToggle = document.querySelector(".toggle");
+
+      cardToggle.onclick = function () {
+        card.classList.toggle("active");
+      };
+
+    </script>
+
+    <script>
+      const card2 = document.querySelector(".card2");
+      const cardToggle2 = document.querySelector(".toggle2");
+
+      cardToggle2.onclick = function () {
+        card2.classList.toggle("active");
+      };
+    </script>
+
+    <script>
+      const card3 = document.querySelector(".card3");
+      const cardToggle3 = document.querySelector(".toggle3");
+
+      cardToggle3.onclick = function () {
+        card3.classList.toggle("active");
+      };
+    </script>
   </section>
+
+  <footer style="text-align: center;">
+    <h5 class="mt-4">Hecho con <ion-icon name="heart-outline"></ion-icon> por el equipo de Doggty</h5>
+    <%= link_to 'Conocenos', about_path, class: 'about' %>
+    Todos los derechos reservados | Doggty 2022.
+  </footer>
 
 <%# opcional card design  %>
 <div class="col-lg-12 main-container">

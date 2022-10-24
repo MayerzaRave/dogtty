@@ -1,5 +1,6 @@
 class CaresController < ApplicationController
   before_action :set_pets, only: :new
+  before_action :set_care, only: %i[new create]
 
   def new
     @care = Care.new
@@ -9,7 +10,7 @@ class CaresController < ApplicationController
     @care = Care.find(params[:id])
     @pet = Pet.find(Care.find(params[:id]).pet_id)
   end
-  
+
   def index
     @cares = Care.all
     @pets = Pet.where(user_id: current_user.id)
@@ -46,5 +47,10 @@ class CaresController < ApplicationController
 
   def care_params
     params.require(:care).permit(:pet_id, :category, :schedule, :status, :title, :details)
+  end
+
+  def set_care
+    @care = Care.new
+    @care.title = params[:care]
   end
 end
