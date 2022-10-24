@@ -3,7 +3,7 @@
     <div class="form-field">
       <%= f.association :pet, as: :check_boxes, collection: @pets %>
       <%= f.input :category, collection: CATEGORIES, class: "input-text"%>
-      <%= f.input :title, input_html: {value: params['care'] }, disabled: true %>
+      <%= f.input :title, collection: CARES, input_html: {value: params['care'] }%>
     </div>
   </div>
 
