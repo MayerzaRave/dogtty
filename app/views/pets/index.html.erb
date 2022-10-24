@@ -3,5 +3,4 @@
 <%= link_to pet.name, pet_path(pet) if pet.user_id == current_user.id%> <br>
 <% end %>
 
-<div><%= link_to "New Pet", new_pet_path , class: "" %></div>
-<div><%= link_to "Cares", cares_path , class: "" %></div>
+<%= link_to "new pet", new_pet_path %>
