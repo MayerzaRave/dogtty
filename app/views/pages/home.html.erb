@@ -113,7 +113,7 @@
     <% cares.each do |care| %>
     <div>
       <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
-      <%= link_to care.title, care_path(care)%>
+      <%= link_to care.title, cares_path(care)%>
     </div>
   <% end %>
   <% end %>
