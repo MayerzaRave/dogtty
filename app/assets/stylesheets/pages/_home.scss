@@ -49,6 +49,10 @@
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
   padding: 20px;
   transition: height .5s ease-in-out;
+
+  &:hover {
+    height: 325px;
+  }
 }
 
 .card.active {
