@@ -20,8 +20,22 @@
   font-weight: bolder;
 }
 
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
 .banner .img-info {
   margin-left: 60px;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
 }
 
 .banner .btn {
@@ -32,6 +46,8 @@
   font-weight: bolder;
   color: white;
 }
+
+// -------------------------------
 
 #services {
   background-color: white;
@@ -52,8 +68,14 @@
 
   &:hover {
     height: 325px;
+
+    .toggle ion-icon {
+      transform: rotate(-180deg);
+    }
   }
 }
+
+
 
 .card.active {
   height: 325px;
