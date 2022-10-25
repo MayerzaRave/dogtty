@@ -48,7 +48,7 @@ i = 0
   care = Care.new
   care.category = %w[health beauty play].sample
   care.schedule = Time.now
-  care.status = %w[scheduled completed postponed].sample
+  care.status = 'scheduled'
   care.title = CARES.sample
   care.details = Faker::Lorem.paragraph
   care.pet = pet
@@ -62,7 +62,6 @@ i = 0
 
   desease.save!
 
-
   puts "#{user.first_name} created with #{pet.name} pet and #{desease.name} desease"
- i += 1
+  i += 1
 end
