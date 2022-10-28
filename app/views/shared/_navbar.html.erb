@@ -1,39 +1,46 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "icon.jpg" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "My pet's cares", cares_path, class: "nav-link" %>
-          </li>
-
-
-          <li class="nav-item dropdown">
-           <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "profile.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My pets", pets_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+<header class="header">
+  <div class="container">
+    <div class="header-main">
+      <div class="logo">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "icon.jpg" %>Dogtty
         <% end %>
-      </ul>
+      </div>
+      <button class="nav-toggler js-nav-toggler">
+        <span></span>
+      </button>
+      <nav class="nav js-nav">
+        <ul>
+          <% if user_signed_in? %>
+            <li style="--item:1"><%= link_to "My pet's cares", cares_path %></li>
+            <li style="--item:2"><%= link_to "My pets", pets_path %></li>
+            <li style="--item:3"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+          <% else %>
+            <li style="--item:4"><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
     </div>
   </div>
-</div>
+</header>
+
+<script>
+  const navToggler = document.querySelector('.js-nav-toggler');
+  const nav = document.querySelector('.js-nav');
+
+  function navToggle() {
+    nav.classList.toggle("active");
+    navToggler.classList.toggle("active");
+  }
+
+  navToggler.addEventListener("click", navToggle);
+
+
+  document.addEventListener('click', (event) => {
+    const isClickingInsideNav = nav.contains(event.target);
+    const isClickingInsideNavToggler = navToggler.contains(event.target);
+    if(!(isClickingInsideNav || isClickingInsideNavToggler) && nav.classList.contains("active")){
+      navToggle();
+    }
+  });
+</script>

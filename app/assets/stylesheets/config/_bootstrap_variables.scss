@@ -6,16 +6,22 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg-color:           $body-bg-color;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$main-color: #a68be9;
+$ligth-red: #ed7d7d;
+$light-yellow: #edd08c;
+$black: #1a1a1a;
+$black-light: #4d4d4d;
+$white: #ffffff;
+$white-light: #362f2f66;
+$white-alpha: #ffffff80;
+$body-bg-color: #f5e7c6;
+$border-color-1: #d9c99b;
+$border-color-2: #d9c79b66;
+$shadow: #d9c79b;
 
 // Buttons & inputs' radius
 $border-radius:    2px;

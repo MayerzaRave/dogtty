@@ -1,57 +1,280 @@
-// Specific CSS for your home-page
+// container values
 
-.main-container {
-  width: 95%;
-  margin: 46px auto;
-  border-radius: 21px;
+.container1 {
+  width: 1170px;
+  margin: auto;
+  padding: 0 15px;
 }
 
-.banner {
-  background-color: #5a5aff;
-  height: 360px;
+img {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
-.banner #info {
-  padding-left: 60px;
-  padding-top: 42px;
+// home section
+
+.home {
+  padding: 180px 0 80px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 200px;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    background-color: $main-color;
+    border-radius: 50%;
+    z-index: -1;
+  }
 }
 
-.banner #info h1 {
-  font-weight: bolder;
+.home-text {
+  grid-column: span 6;
+
+  h1 {
+    font-size: 50px;
+    margin: 0 0 25px;
+  }
+
+  p {
+    margin: 0 0 30px;
+  }
 }
 
-.banner .img-info {
-  margin-left: 60px;
+.home-img, .home-text {
+  grid-column: span 6;
+  align-self: center ;
 }
 
-.banner .btn {
-  background-color: #F36F86;
-  border: 1px solid #F36F86;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: bolder;
-  color: white;
-}
+// fancy-br box border-radius
 
-#services {
-  background-color: white;
+.fancy-br-box {
   height: 400px;
+  width: 400px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+
+  & > img {
+    border-radius: 30% 70% 50% 50% / 50%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border: 2px solid $ligth-red;
+    border-radius: 50% 40% / 40% 50%;
+    z-index: -1;
+    transform: rotate(150deg);
+  }
+}
+
+.home-img {
+  .icon-box {
+    img {
+      width: 100px;
+      position: absolute;
+      left: -32px;
+      bottom: -36px;
+      animation: moveY 4s linear infinite;
+    }
+  }
+}
+
+// button section
+
+.btn1 {
+  display: inline-block;
+  padding: 10px 28px;
+  background-color: $main-color;
+  color: $white;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 1.6;
+  font-family: inherit;
+  border: none;
+  vertical-align: middle;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &::before {
+    width: 8px;
+    height: 8px;
+    left: -8px;
+    top: 6px;
+    transition: left .2s ease;
+  }
+
+  &::after {
+    width: 10px;
+    height: 10px;
+    right: -10px;
+    bottom: 6px;
+    transition: right .2s ease;
+  }
+
+  &:hover::before {
+    left: 14px;
+  }
+
+  &:hover::after {
+    right: 14px;
+  }
+}
+
+.btn1::before,
+.btn1::after {
+  content: '';
+  position: absolute;
+  background-color: $white-alpha;
+}
+
+
+.btn1:hover::before, .btn1:hover::after {
+  animation: spin 2s linear infinite;
+}
+
+// rows home section (En un futuro hacerlo con bootstrap)
+
+.row1 {
+  --cols: 12;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 30;
+}
+
+// animations
+
+@keyframes moveY {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+// About section
+
+.section-padding {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: $main-color;
+    margin: 0 0 8px;
+  }
+
+  .sub-title {
+    font-size: 40px;
+    font-weight: 400;
+    color: $black;
+    text-transform: capitalize;
+    line-height: 1.2;
+  }
+}
+
+.about {
+  overflow: hidden;
+}
+
+.about-img, .about-text {
+  grid-column: span 6;
+}
+
+.about-img .fancy-br-box::before {
+  border-color: $light-yellow;
+}
+
+.about-img .icon-box {
+  position: absolute;
+  left: -60px;
+  bottom: -30px;
+  animation: moveY 4s linear infinite;
+}
+
+.about-img .icon-box img {
+  width: 100px;
+}
+
+.about-text h3{
+  margin: 16px 0;
+  font-size: 20px;
+}
+
+.about-text ul li {
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.about-text ul i{
+  color: $main-color;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+
+
+// card section
+
+#uno {
+  background-color: $body-bg-color;
+  height: 500px;
 }
 
 .card {
   position: relative;
   width: 350px;
-  // height: 400px;
   height: 120px;
   overflow: hidden;
-  background: #fff;
+  background: $white-alpha;
   border-radius: 10px;
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
   padding: 20px;
   transition: height .5s ease-in-out;
+}
 
-  &:hover {
-    height: 325px;
+.card:hover {
+  height: 270px;
+
+  .toggle ion-icon {
+    transform: rotate(-180deg);
   }
 }
 
@@ -69,22 +292,18 @@
 }
 
 .card.active {
-  height: 325px;
-}
-
-h2 {
-  color: $green;
+  height: 350px;
 }
 
 .card .content {
   display: flex;
   align-items: center;
 
-  .profile {
+  .profile  {
     position: relative;
     width: 75px;
     height: 75px;
-    border-radius: 50px;
+    border-radius: 50%;
     overflow: hidden;
 
     .walking {
@@ -97,34 +316,32 @@ h2 {
     }
   }
 
-  h4 {
-    margin-left: 16px;
+  h2 {
+    margin-left: 15px;
     font-size: 400;
-    color: #5a5aff;
+    color: $main-color;
   }
 }
 
-.nav {
+
+.nav1 {
   position: relative;
   top: 25px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, .1);
   padding: 20px 0;
 
   li {
-    list-style: none;
     margin: 7px 0;
 
     a {
-      text-decoration: none;
       display: flex;
       align-items: center;
-      color: #89c4ff;
+      color: $ligth-red;
       font-size: 1.1em;
-      transition: color .25s;
-      margin-right: 100px;
+      transition: color .26s;
 
       &:hover {
-        color: #5a5aff;
+        color: $light-yellow;
       }
     }
   }
@@ -152,24 +369,3 @@ h2 {
 .card.active .toggle ion-icon {
   transform: rotate(-180deg);
 }
-
-.about {
-  display: grid;
-  text-decoration: none;
-}
-
-// posiblemente borre este elemento
-.img {
-  object-fit: contain;
-  width: 200px
-}
-
-
-
-// <div class="container">
-// <div class="row">
-//   <div class="col-lg-12 text-center">
-//     <h2 class="section-heading mt-4">Our Services</h2>
-//   </div>
-// </div>
-// </div>
