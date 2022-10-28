@@ -1,14 +1,15 @@
-<% if user_signed_in? %>
-   <div class="container mt-4">
+<div class="container">
   <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
+    <%# <%= date %>
     <% cares.each do |care| %>
-      <div>
+    <div>
+      <% if Pet.find(care.pet_id).photo.attached? %>
         <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
-        <%= link_to care.title, cares_path(care)%>
-      </div>
-    <% end %>
+      <% else %>
+        <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+      <% end %>
+      <%= link_to care.title, cares_path(care)%>
+    </div>
+  <% end %>
   <% end %>
 </div>
-<% else %>
-  <%= render 'signout' %>
-<% end %>
