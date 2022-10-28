@@ -7,7 +7,7 @@
         <%= f.association :pet, label: 'I want this Care for 👇', as: :check_boxes, collection: @pets, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
         <%= f.input :category, collection: CATEGORIES, selected: 1, class: "input-text"%>
         <%= f.input :title, collection: CARES, selected: 1, class: "input-text"%>
-        <%= f.input :schedule %>
+        <%= f.input :schedule, as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :details %>
       </div>
     </div>
