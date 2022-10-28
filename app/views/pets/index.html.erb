@@ -1,6 +1,21 @@
-<h3><%= current_user.email %></h3>
-<% @pets.each do |pet| %>
-<%= link_to pet.name, pet_path(pet) if pet.user_id == current_user.id%> <br>
-<% end %>
+<br>
+<div class="row m-3">
+<h3>Your pets🐾</h3>
+  <% @pets.each do |pet| %>
+      <% if pet.user_id == current_user.id%>
+      <div class="col card2 col-md-2 border border-color: a68be9" style="width: 12rem;">
+        <% if pet.photo.attached? %>
+          <%= cl_image_tag pet.photo.key, class: 'card-img-top' %>
+        <% else %>
+          <i class="fa-solid fa-paw card-img-top"></i>
+        <% end %>
 
-<%= link_to "new pet", new_pet_path %>
+        <div class="card-body">
+          <%= link_to pet.name, pet_path(pet) %>
+        </div>
+      </div>
+      <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'New pet', new_pet_path, class: 'btn btn-info m-3' %>
