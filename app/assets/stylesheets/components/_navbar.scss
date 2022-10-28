@@ -1,14 +1,148 @@
-.navbar-lewagon {
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 8px 0;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: white;
-  border-top-left-radius: 17px;
-  border-top-right-radius: 17px;
+  position: relative;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.logo img {
+  width: 32px;
+  margin-right: 7px;
 }
 
-.navbar-lewagon .navbar-brand img {
+.logo a {
+  font-size: 28px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: $black;
+}
+
+.nav-toggler {
+  height: 34px;
   width: 40px;
+  border: none;
+  background-color: transparent;
 }
+
+.nav-toggler span {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background-color: $black;
+  margin: auto;
+  position: relative;
+  transition: background-color .3s ease;
+}
+
+.nav-toggler.active span {
+  background-color: transparent;
+}
+
+.nav-toggler span::before,
+.nav-toggler span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  transition: top .2s ease .2s, transform .2s ease;
+}
+
+.nav-toggler.active span::before,
+.nav-toggler.active span::after{
+  top: 0;
+  transition-delay: 0s, .2s;
+}
+
+.nav-toggler.active span::before {
+  transform: rotate(45deg);
+}
+
+.nav-toggler.active span::after {
+  transform: rotate(-45deg);
+}
+
+.nav-toggler span::before {
+  top: -7px;
+}
+
+.nav-toggler span::after {
+  top: 7px;
+}
+
+.nav {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 8px;
+  visibility: hidden;
+  transition: visibility 0s ease .5s;
+  overflow: hidden;
+
+  li {
+    background-color: $white-alpha;
+    align-items: center;
+    transform: translateY(20px);
+    backdrop-filter: blur(5px);
+    list-style: none;
+    opacity: 0;
+    transition: opacity .5s ease, transform .5s ease;
+    transition-delay: calc(0.05s * var(--item));
+  }
+
+  a {
+    display: block;
+    padding: 8px 30px;
+    font-weight: 500;
+    color: $black;
+    text-transform: capitalize;
+    position: relative;
+  }
+}
+
+.nav a::before {
+  content: '';
+  height: 3px;
+  width: 0;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $main-color;
+  transition: width .3s ease;
+}
+
+.nav a:hover::before {
+  width: 12px;
+}
+
+.nav.active {
+  visibility: visible;
+  transition-delay: 0s;
+
+  li {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+.nav li:first-child{
+  border-radius: 10px 10px 0 0;
+}
+
+.nav li:last-child{
+  border-radius: 0 0 10px 10px;
+}
+
+
+// BOARR TORDO ESTE MIERDERO

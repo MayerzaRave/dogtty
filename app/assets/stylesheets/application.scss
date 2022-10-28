@@ -3,6 +3,7 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
@@ -13,4 +14,51 @@
 @import "simple_calendar";
 @import "cares/index";
 @import "cares/show";
+
 @import "flatpickr/dist/flatpickr";
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::before,
+::after {
+box-sizing: border-box;
+}
+
+body {
+  font-family: $my-font, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background-color: $body-bg-color;
+  color: $black;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  line-height: 1.2;
+  color: $black;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: $main-color;
+}
+
+::selection {
+  color: $white;
+  background-color: $main-color;
+}
+
+ul {
+  list-style: none;
+}
