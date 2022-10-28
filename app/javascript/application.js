@@ -5,6 +5,5 @@ import "bootstrap"
 
 import "./controllers/pages/home"
 
-import { initFlatpickr } from "../plugins/flatpickr";
-
+import { initFlatpickr } from "./plugins/flatpickr";
 initFlatpickr();
