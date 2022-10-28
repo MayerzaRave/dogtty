@@ -1,1 +1,152 @@
-other
+
+
+<%# inicio de la seccion home %>
+
+<div class="home">
+  <div class="container1">
+    <div class="row1">
+      <div class="home-text">
+        <h1>We help you take care of those you love the most</h1>
+        <p>For everyone who wants paws in their houses, Dogtty comes to make It easier!</p>
+        <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
+      </div>
+      <div class="home-img">
+        <div class="fancy-br-box">
+          <%= image_tag "home-img.jpg" %>
+          <div class="icon-box">
+            <%= image_tag 'owner.svg' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# fin de la seccion home  %>
+
+<%# inicio seccion 'About Us'  %>
+
+<div class="about section-padding">
+  <div class="container1">
+    <div class="section-title">
+      <h2 class="title">About Us</h2>
+      <p class="sub-title">Why we are the best</p>
+    </div>
+    <div class="row1">
+      <div class="about-img">
+        <div class="fancy-br-box">
+          <%= image_tag 'about-img.jpg' %>
+          <div class="icon-box">
+            <%= image_tag '2.png' %>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>No tengo ni perra idea que poner aca, solo se que nuestra empresa es muy buena y por eso deberias escogernos, ademas necesitamos comer jajajaja</p>
+        <h3 style="font-size: 24px; margin-bottom: 16px;">Un titulo asi bien agreste</h3>
+        <ul style="padding-left: 0px;">
+          <li><i class="fas fa-check"></i>Ni idea que poner aca</li>
+          <li><i class="fas fa-check"></i>Ni idea que poner aca</li>
+          <li><i class="fas fa-check"></i>Ni idea que poner aca</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# fin de la seccion 'About Us'  %>
+
+<%# inicio de la seccion services  %>
+
+<div id="uno" class="services section-padding">
+  <div class="container1">
+    <div class="section-title">
+      <h2 class="title">services</h2>
+      <p class="sub-title">what we provide</p>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content: space-around;">
+
+    <div class="card">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'walking.svg', class: 'walking' %>
+        </div>
+        <h2>Time together</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Pet walk', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+        <li><%= link_to 'Playing time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+        <li><%= link_to 'Feeding', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+      </ul>
+      <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'vaccine.png', class: 'walking' %>
+        </div>
+        <h2>Health</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+        <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+        <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+      </ul>
+      <div class="toggle toggle2">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+
+    <div class="card card3">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'facepalm.svg', class: 'walking' %>
+        </div>
+        <h2>Beuty</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+        <li><%= link_to 'nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+      </ul>
+      <div class="toggle toggle3">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+
+<script>
+  const card = document.querySelector(".card");
+  const cardToggle = document.querySelector(".toggle");
+
+  cardToggle.onclick = function () {
+    card.classList.toggle("active");
+  };
+
+</script>
+</section>
+
+<%# final de la seccion services  %>
+
+<script>
+  const card2 = document.querySelector(".card2");
+  const cardToggle2 = document.querySelector(".toggle2");
+
+  cardToggle2.onclick = function () {
+    card2.classList.toggle("active");
+  };
+</script>
+
+<script>
+  const card3 = document.querySelector(".card3");
+  const cardToggle3 = document.querySelector(".toggle3");
+
+  cardToggle3.onclick = function () {
+    card3.classList.toggle("active");
+  };
+</script>

@@ -6,7 +6,7 @@
       <% if Pet.find(care.pet_id).photo.attached? %>
         <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
       <% else %>
-        <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+        <%= image_tag 'pet.jpg', size: "40px", class: "avatar my-2"  %>
       <% end %>
       <%= link_to care.title, cares_path(care)%>
     </div>
