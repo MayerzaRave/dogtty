@@ -1,1 +1,9 @@
-test
+ <div class="container mt-4">
+  <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
+    <% cares.each do |care| %>
+      <div>
+        <%= link_to care.title, cares_path(care)%>
+      </div>
+    <% end %>
+  <% end %>
+</div>

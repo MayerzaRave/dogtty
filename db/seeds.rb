@@ -45,14 +45,17 @@ i = 0
   pet.photo.attach(io: URI.open(PETS[i]), filename: "nes.png", content_type: "image/png")
   pet.save
 
-  care = Care.new
-  care.category = %w[health beauty play].sample
-  care.schedule = Time.now
-  care.status = 'scheduled'
-  care.title = CARES.sample
-  care.details = Faker::Lorem.paragraph
-  care.pet = pet
-  care.save
+
+  4.times do
+    care = Care.new
+    care.category = %w[health beauty play].sample
+    care.schedule = Time.now
+    care.status = 'scheduled'
+    care.title = CARES.sample
+    care.details = Faker::Lorem.paragraph
+    care.pet = pet
+    care.save
+  end
 
   desease = Desease.new
   desease.name = Faker::Lorem.word
