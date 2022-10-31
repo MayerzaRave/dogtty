@@ -1,31 +1,6 @@
-<div class="container">
 
-  <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
-    <%# <%= date %>
-    <% cares.each do |care| %>
-    <div>
-      <% if Pet.find(care.pet_id).photo.attached? %>
-        <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
-      <% else %>
-        <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
-      <% end %>
-      <%= link_to care.title, cares_path(care)%>
-    </div>
-  <% end %>
-  <% end %>
-</div>
-
-
-<button type="button" container= "body" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
-  Tooltip on right
-</button>
-
-<p>Placeholder text to demonstrate some <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">inline links</a></p>
-
-<script>
-
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-});
-</script>
+<% if user_signed_in? %>
+ <%= render 'pages/signin' %>
+<% else %>
+ <%= render 'pages/signout' %>
+<% end %>
