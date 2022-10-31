@@ -1,6 +1,6 @@
 class CaresController < ApplicationController
   before_action :set_pets, only: :new
-  before_action :set_care, only: %i[show edit update]
+  before_action :set_care, only: %i[show edit update destroy]
   before_action :set_category_and_title, only: :new
 
   def new
@@ -20,6 +20,7 @@ class CaresController < ApplicationController
 
   def destroy
     @care.destroy
+    redirect_to cares_path, notice: 'Care was successfully destroyed!'
   end
 
   def update
@@ -29,7 +30,7 @@ class CaresController < ApplicationController
     else
       @care.update(care_params)
     end
-    redirect_to cares_path, notice: 'Service was successfully updated!'
+    redirect_to cares_path, notice: 'Care was successfully updated!'
   end
 
   def create
