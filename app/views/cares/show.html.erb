@@ -48,7 +48,7 @@
         </div>
         <div class = "row">
           <div class = "col"></div>
-          <div class = "col"><%= link_to "Accomplished", care_path(@care), data: {turbo_method: :patch}, params: {other: "other"}, class: "col me-md-2 btn btn-primary mt-2" %></div>
+          <div class = "col"><%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info ms-3"  %></div>
           <div class = "col"><%= link_to "Delete", care_path(@care), data: {turbo_method: :delete} , class:"col btn btn-danger mt-2"%></div>
           <div class = "col"></div>
         </div>
