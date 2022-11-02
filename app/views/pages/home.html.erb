@@ -1,6 +1,8 @@
 
 <% if user_signed_in? %>
- <%= render 'pages/signin' %>
+  <div class="container mt-5">
+    <%= render 'pages/signin' %>
+  </div>
 <% else %>
  <%= render 'pages/signout' %>
 <% end %>
