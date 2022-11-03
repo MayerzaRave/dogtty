@@ -8,7 +8,7 @@ import "./controllers/pages/home"
 import { initFlatpickr } from "./plugins/flatpickr";
 initFlatpickr();
 
-import "../assets/stylesheets/application.scss"
+// import "../assets/stylesheets/application.scss"
 
 document.addEventListener("DOMContentLoaded", function(event) {
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
