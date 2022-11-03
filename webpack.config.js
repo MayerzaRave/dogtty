@@ -20,7 +20,7 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /@/i,
+          test: /@/i,
             use: { loader: 'worker-loader' }
         }
     ]
