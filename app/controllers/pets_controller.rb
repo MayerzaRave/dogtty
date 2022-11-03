@@ -6,6 +6,8 @@ class PetsController < ApplicationController
   end
 
   def show
+    @pet= Pet.find(params[:id])
+    @cares = Care.where(pet_id: @pet)
   end
 
   def edit
