@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ModalTooltipController from "./modal_tooltip_controller"
+application.register("modal-tooltip", ModalTooltipController)

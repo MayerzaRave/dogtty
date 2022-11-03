@@ -16,13 +16,5 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ],
-  // module: {
-  //   rules: [
-  //       {
-  //         test: /@/,
-  //           use: { loader: 'worker-loader' }
-  //       }
-  //   ]
-  // }
+  ]
 }
