@@ -1,5 +1,25 @@
+<section class="welcome">
+  <div class="container1">
+    <div class="row1">
+      <div class="welcome-text">
+        <h1>Citas de tu mascotas</h1>
+        <p>Echa un vistzo a todas las citas que han tenido tus mascotas y el detalle de estas</p>      </div>
+      <div class="home-img">
+        <div class="img-pet">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "pet.jpg" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <div class="container mt-5">
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex">
     <% @cares.each do |care| %>
       <div class="col-lg-4">
         <div class="carding mb-2">
