@@ -3,7 +3,7 @@
 <h3>Your pets🐾</h3>
   <% @pets.each do |pet| %>
       <% if pet.user_id == current_user.id%>
-      <div class="col card2 col-md-2 border border-color: a68be9" style="width: 12rem;">
+      <div class="col col-md-2 border border-color: a68be9" style="width: 12rem;">
         <% if pet.photo.attached? %>
           <%= cl_image_tag pet.photo.key, class: 'card-img-top' %>
         <% else %>
