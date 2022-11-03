@@ -29,18 +29,49 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
 <section class="calendar">
   <div class="section-title">
-    <h2 class="title">Tu Calendario</h2>
+
     <p class="sub-title">Aquí estan todas tus citas que tienes para esta semana</p>
   </div>
   <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
     <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
       <% cares.each do |care| %>
         <% if Pet.find(care.pet_id).photo.attached? %>
-          <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
+
+        <div data-bs-toggle="tooltip" data-bs-placement="top" title='Click to view details'>
+
+          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2" %>
+          </div>
+
+        </div>
         <% else %>
-          <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+          </div>
         <% end %>
-        <%= link_to care.title, care_path(care)%>
+
+
+
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= care.title %></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Accomplished</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     <% end %>
   </div>
