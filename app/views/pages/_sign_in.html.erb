@@ -1,0 +1,142 @@
+<!--Inicio de la seccion de bienvenida-->
+
+<section class="welcome">
+  <div class="container1">
+    <div class="row1">
+      <div class="welcome-text">
+        <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
+        <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+      </div>
+      <div class="home-img">
+        <div class="img-pet">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "pet.jpg" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%# Aqui posiblemente haya una seccion de stats,
+pero como aun no han implementado nada lo voy a dejar asi %>
+
+
+<!--Inicio de la sección del calendario-->
+
+<section class="calendar">
+  <div class="section-title">
+    <h2 class="title">Tu Calendario</h2>
+    <p class="sub-title">Aquí estan todas tus citas que tienes para esta semana</p>
+  </div>
+  <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
+    <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
+      <% cares.each do |care| %>
+        <% if Pet.find(care.pet_id).photo.attached? %>
+          <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
+        <% else %>
+          <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+        <% end %>
+        <%= link_to care.title, care_path(care)%>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<!--Inicio de la seccion de servicios-->
+
+<div id="uno" class="services section-padding">
+  <div class="container1">
+    <div class="section-title">
+      <h2 class="title">servicios</h2>
+      <p class="sub-title">Que quieres agendar hoy?</p>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content: space-around;">
+
+    <div class="card">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'walking.svg', class: 'walking' %>
+        </div>
+        <h2>Tiempo Juntos</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Caminatas', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+        <li><%= link_to 'Tiempo de juego', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+        <li><%= link_to 'Alimentación', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+      </ul>
+      <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'vaccine.png', class: 'walking' %>
+        </div>
+        <h2>Salud</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Vacunación', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+        <li><%= link_to 'Desparacitación', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+        <li><%= link_to 'Consultas', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+      </ul>
+      <div class="toggle toggle2">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+
+    <div class="card card3">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'facepalm.svg', class: 'walking' %>
+        </div>
+        <h2>Belleza</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Baños', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+        <li><%= link_to 'Cortes de uñas', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+      </ul>
+      <div class="toggle toggle3">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+
+<script>
+  const card = document.querySelector(".card");
+  const cardToggle = document.querySelector(".toggle");
+
+  cardToggle.onclick = function () {
+    card.classList.toggle("active");
+  };
+
+</script>
+</section>
+
+<%# final de la seccion services  %>
+
+<script>
+  const card2 = document.querySelector(".card2");
+  const cardToggle2 = document.querySelector(".toggle2");
+
+  cardToggle2.onclick = function () {
+    card2.classList.toggle("active");
+  };
+</script>
+
+<script>
+  const card3 = document.querySelector(".card3");
+  const cardToggle3 = document.querySelector(".toggle3");
+
+  cardToggle3.onclick = function () {
+    card3.classList.toggle("active");
+  };
+</script>
