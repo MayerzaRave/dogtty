@@ -14,5 +14,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "worker-loader": "^3.0.8"
   }
 }
