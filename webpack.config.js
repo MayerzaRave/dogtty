@@ -17,12 +17,12 @@ module.exports = {
       maxChunks: 1
     })
   ],
-  module: {
-    rules: [
-        {
-          test: /@/,
-            use: { loader: 'worker-loader' }
-        }
-    ]
-  }
+  // module: {
+  //   rules: [
+  //       {
+  //         test: /@/,
+  //           use: { loader: 'worker-loader' }
+  //       }
+  //   ]
+  // }
 }

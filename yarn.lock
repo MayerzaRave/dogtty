@@ -1053,7 +1053,7 @@
   "resolved" "https://registry.npmjs.org/map-obj/-/map-obj-4.3.0.tgz"
   "version" "4.3.0"
 
-"mapbox-gl@>= 0.47.0 < 3.0.0":
+"mapbox-gl@^2.10.0", "mapbox-gl@>= 0.47.0 < 3.0.0":
   "integrity" "sha512-ZAlCe55LXlbg60l15okSBs70NQAPLw3yRO3SSJMTB1uU7uj2QQbLCQPy1Ds+3B4wlaa5W3ewv8FNOZPQOoSSPA=="
   "resolved" "https://registry.npmjs.org/mapbox-gl/-/mapbox-gl-2.10.0.tgz"
   "version" "2.10.0"
