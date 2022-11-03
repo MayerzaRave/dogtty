@@ -45,13 +45,12 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
         </div>
         <% else %>
+        <div data-bs-toggle="tooltip" data-bs-placement="top" title='Click to view details'>
           <div data-bs-toggle="modal" data-bs-target="#exampleModal">
             <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
           </div>
+        </div>
         <% end %>
-
-
-
 
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
