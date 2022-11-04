@@ -1,12 +1,12 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-primary" %>
+  <div class="calendar-heading" style="padding-bottom: 12px;">
+    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn1" %>
     <% if calendar.number_of_weeks == 1 %>
       <span class="calendar-title btn btn-info"><%= t('simple_calendar.week', default: Date::MONTHNAMES[Date.today.month]) %> <%= Date.today.day %></span>
     <% else %>
       <span class="calendar-title"><%= t('simple_calendar.week', default: Date::MONTHNAMES[Date.today.month]) %> <%= Date.today.day %></span>
     <% end %>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-primary"  %>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn1"  %>
   </div>
 
   <table class="mt-2 table table-striped">

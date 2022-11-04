@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_172248) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_01_131735) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_172248) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "contact"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "care_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["care_id"], name: "index_places_on_care_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,4 +109,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_172248) do
   add_foreign_key "cares", "pets"
   add_foreign_key "deseases", "pets"
   add_foreign_key "pets", "users"
+  add_foreign_key "places", "cares"
 end

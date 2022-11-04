@@ -4,6 +4,7 @@
   width: 1170px;
   margin: auto;
   padding: 0 15px;
+  position: relative;
 }
 
 img {
@@ -51,6 +52,27 @@ img {
   grid-column: span 6;
   align-self: center ;
 }
+
+
+.doodles {
+  position: absolute;
+  height: 100px;
+  top: 0;
+  left: 0;
+  animation: rotate 20s ease-in-out 0s infinite;
+  z-index: -1;
+}
+
+.doodles-2{
+  top: 7%;
+  left: 4%;
+}
+
+.doodles-1{
+  top: 74%;
+  left: 28%;
+}
+
 
 // fancy-br box border-radius
 
@@ -278,19 +300,6 @@ img {
   }
 }
 
-.card2 {
-  position: relative;
-  width: 350px;
-  // height: 400px;
-  height: 325px;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 1vw;
-}
-
 .card.active {
   height: 350px;
 }
@@ -368,4 +377,8 @@ img {
 
 .card.active .toggle ion-icon {
   transform: rotate(-180deg);
+}
+
+.max-width-cancel{
+  max-width: 100%!important;
 }

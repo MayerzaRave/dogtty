@@ -1,5 +1,27 @@
+<section class="welcome">
+  <div class="container1">
+    <div class="row1">
+      <div class="welcome-text">
+        <h1>Citas de tu mascotas</h1>
+        <p>Echa un vistzo a todas las citas que han tenido tus mascotas y el detalle de estas</p>      </div>
+      <div class="home-img">
+        <div class="img-pet">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "pet.jpg" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= image_tag 'doodle-4.png', class: 'doodles doodles-1' %>
+    <%= image_tag 'doodle-3.png', class: 'doodles doodles-2' %>
+  </div>
+</section>
+
+
 <div class="container mt-5">
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex">
     <% @cares.each do |care| %>
       <div class="col-lg-4">
         <div class="carding mb-2">
@@ -38,4 +60,13 @@
   </div>
 </div>
 
-<%= link_to "New Care", new_care_path , class: "mx-2" %>
+<%= link_to "New Care", new_care_path , class: "btn btn-danger ms-2" %>
+
+<hr>
+
+<div class='d-flex justify-content-center mb-3'>
+  <div id='map' style='width: 600px; height: 300px;'
+  data-controller="map"
+  data-map-api-key-value="pk.eyJ1IjoianVhbmNydiIsImEiOiJjbDl3eTByenowMWxqM3JxbDlqdDlscHN2In0.3NQA3MupOkea8XBC4Iz7TA">
+  </div>
+</div>

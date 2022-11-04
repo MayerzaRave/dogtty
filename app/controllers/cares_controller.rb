@@ -16,6 +16,13 @@ class CaresController < ApplicationController
     # @cares = Care.all
     # @pets = Pet.where(user_id: current_user.id)
     @cares = current_user.cares
+    # @places =
+    # @markers = @places.geocoded.map do |place|
+    #   {
+    #     lat: place.latitude,
+    #     lng: place.longitude
+    #   }
+    # end
   end
 
   def destroy

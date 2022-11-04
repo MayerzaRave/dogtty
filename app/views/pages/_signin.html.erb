@@ -1,29 +1,177 @@
+<!--Inicio de la seccion de bienvenida-->
 
-  <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
-    <%# <%= date %>
-    <% cares.each do |care| %>
-    <div>
-      <% if Pet.find(care.pet_id).photo.attached? %>
-        <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar my-2" %>
-      <% else %>
-        <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
-      <% end %>
-      <%= link_to care.title, cares_path(care)%>
+<section class="welcome">
+  <div class="container1">
+    <div class="row1">
+      <div class="welcome-text">
+        <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
+        <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+      </div>
+      <div class="home-img">
+        <div class="img-pet">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "pet.jpg" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <% end %>
+    <%= image_tag 'doodle-4.png', class: 'doodles doodles-1' %>
+    <%= image_tag 'doodle-3.png', class: 'doodles doodles-2' %>
+  </div>
+</section>
 
 
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
-  Tooltip on right
-</button>
+<%# Aqui posiblemente haya una seccion de stats,
+pero como aun no han implementado nada lo voy a dejar asi %>
 
-<p>Placeholder text to demonstrate some <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">inline links</a></p>
+
+<!--Inicio de la sección del calendario-->
+
+<section class="calendar">
+  <div class="section-title">
+    <h2 class="title">Mi calendario</h2>
+    <p class="sub-title">Aquí estan todas tus citas que tienes para esta semana</p>
+  </div>
+
+  <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
+    <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
+      <% cares.each do |care| %>
+
+        <% if Pet.find(care.pet_id).photo.attached? %>
+        <div id="tooltip">
+
+          <span id="tooltip-text"><%= care.title %></span>
+          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
+          </div>
+        <% else %>
+            <div id="tooltip">
+            <span id="tooltip-text"><%= care.title %></span>
+              <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <%= image_tag 'pet.jpg', class: "avatar my-2", style: "margin-left: 50px;"  %>
+            </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= care.title %></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Cumpliste con esta cita? si es asi, dale al click a 'Listo' para que esta libere ese espacio en tu calendario
+              </div>
+              <div class="modal-footer">
+                <%= link_to 'Detalles de esta cita', care_path(care), class: 'btn1' %>
+                <% if care.status == 'scheduled' %>
+                  <%= button_to 'Listo', care_path(care), method: :patch, params: { status: 'done' }, class: "btn1"  %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<!--Inicio de la seccion de servicios-->
+
+<div id="uno" class="services section-padding">
+  <div class="container1">
+    <div class="section-title">
+
+      <p class="sub-title">Que quieres agendar hoy?</p>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content: space-around;">
+
+    <div class="card">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'walking.svg', class: 'walking' %>
+        </div>
+        <h2>Tiempo Juntos</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Caminatas', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+        <li><%= link_to 'Tiempo de juego', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+        <li><%= link_to 'Alimentación', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+      </ul>
+      <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'vaccine.png', class: 'walking' %>
+        </div>
+        <h2>Salud</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Vacunación', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+        <li><%= link_to 'Desparacitación', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+        <li><%= link_to 'Consultas', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+      </ul>
+      <div class="toggle toggle2">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+
+    <div class="card card3">
+      <div class="content">
+        <div class="profile">
+          <%= image_tag 'facepalm.svg', class: 'walking' %>
+        </div>
+        <h2>Belleza</h2>
+      </div>
+      <ul class="nav1">
+        <li><%= link_to 'Baños', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+        <li><%= link_to 'Cortes de uñas', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+      </ul>
+      <div class="toggle toggle3">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+      </div>
+    </div>
+
 
 <script>
+  const card = document.querySelector(".card");
+  const cardToggle = document.querySelector(".toggle");
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-});
+  cardToggle.onclick = function () {
+    card.classList.toggle("active");
+  };
+
+</script>
+</section>
+
+<%# final de la seccion services  %>
+
+<script>
+  const card2 = document.querySelector(".card2");
+  const cardToggle2 = document.querySelector(".toggle2");
+
+  cardToggle2.onclick = function () {
+    card2.classList.toggle("active");
+  };
+</script>
+
+<script>
+  const card3 = document.querySelector(".card3");
+  const cardToggle3 = document.querySelector(".toggle3");
+
+  cardToggle3.onclick = function () {
+    card3.classList.toggle("active");
+  };
 </script>
