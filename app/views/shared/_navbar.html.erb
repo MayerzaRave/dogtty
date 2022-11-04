@@ -25,22 +25,27 @@
 </header>
 
 <script>
-  const navToggler = document.querySelector('.js-nav-toggler');
-  const nav = document.querySelector('.js-nav');
-
-  function navToggle() {
-    nav.classList.toggle("active");
-    navToggler.classList.toggle("active");
-  }
-
-  navToggler.addEventListener("click", navToggle);
 
 
-  document.addEventListener('click', (event) => {
-    const isClickingInsideNav = nav.contains(event.target);
-    const isClickingInsideNavToggler = navToggler.contains(event.target);
-    if(!(isClickingInsideNav || isClickingInsideNavToggler) && nav.classList.contains("active")){
-      navToggle();
-    }
-  });
+
+  var navToggler = document.querySelector('.js-nav-toggler');
+   var nav = document.querySelector('.js-nav');
+
+   function navToggle() {
+     nav.classList.toggle("active");
+     navToggler.classList.toggle("active");
+   }
+
+   navToggler.addEventListener("click", navToggle);
+
+
+   document.addEventListener('click', (event) => {
+     let isClickingInsideNav = nav.contains(event.target);
+     let isClickingInsideNavToggler = navToggler.contains(event.target);
+     if(!(isClickingInsideNav || isClickingInsideNavToggler) && nav.classList.contains("active")){
+       navToggle();
+     }
+   });
+
+
 </script>
