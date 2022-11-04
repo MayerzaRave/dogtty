@@ -2,63 +2,7 @@
   <div class="container">
     <div class="row ">
       <div class = "row featurette align-items-center ">
-        <% unless  @cares.length == 0%>
-          <div class = "col-md-7 align-items-center">
-            <div class="align-items-center">
-              <div class="about-text go-to">
-                <h3 class="dark-color text-center"><%= @pet.name %></h3>
-                <h6 class="theme-color lead text-center"><%= @pet.specie %></h6>
-                <div class="row about-list">
-                  <div class="col-md-6 text-center">
-                    <div class="media">
-                      <label>Birthday</label>
-                      <p><%= @pet.birthday %></p>
-                    </div>
-                    <div class="media">
-                      <label>Weight</label>
-                      <p><%= @pet.weight %> <%= @pet.weight_unit %></p>
-                    </div>
-                    <div class="media">
-                      <label>Breed</label>
-                      <p><%= @pet.breed %></p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 text-center">
-                    
-                    <div class="cardx">
-                      <div class="content">
-                        <div class="profile">
-                          <%= image_tag 'care.png', class: 'walking' %>
-                        </div>
-                        <h2>Scheduled Cares</h2>
-                      </div>
-                      <ul class="navx hider-villa">
-                        <% @cares.each do |care| %>
-                          <li class = row>
-                            <p><%= care.title %>  <%= care.schedule %></p>
-                            <div class = "col"><%= button_to 'Done', care_path(care), method: :patch, params: { status: 'done' }, class: "btn btn-info ms-3"  unless care.status == "Accomplished" %></div>
-                            <div class = "col"><%= link_to "Delete", care_path(care), data: {turbo_method: :delete} , class:"col btn btn-danger mt-2"%></div>
-                          </li>
-                        <% end %> -->
-                      </ul>
-                      <div class="toggle">
-                        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-                      </div>
-                    </div>
-                    
-                    <!-- <% @cares.each do |care| %>
-                      <div class="media">
-                        <p><label><%= care.title %></label> <%= care.schedule %></p>
-                      </div>
-                    <% end %> -->
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% else %>
-          <div class = "col-md-7 align-items-center">
+          <div class = "col-md-5 align-items-center">
             <div class="align-items-center">
               <div class="about-text go-to">
                 <h3 class="dark-color text-center"><%= @pet.name %></h3>
@@ -77,12 +21,19 @@
                       <label>Breed</label>
                       <p class="max-width-cancel"><%= @pet.breed %></p>
                     </div>
+                    <div class = "col">
+                      <%= link_to "New Care", new_care_path , class: "btn btn-info ms-3" %>
+                    </div>
+                    <% unless @cares.length == 0 %>
+                      <div class = "col">
+                        <%= render 'cares_card', cares: @cares %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
             </div>      
           </div>
-        <% end %>
           <div class = "col-md-5">
             <div class="align-items-center">
               <div class="about-avatar">
@@ -95,9 +46,7 @@
               <div class = "row">
                 <div class = "col">
                 </div>
-              <div class = "col">
-                <%= link_to "New Care", new_care_path , class: "btn btn-info ms-3" %>
-              </div>
+
               <div class = "col">
               </div>
             </div>

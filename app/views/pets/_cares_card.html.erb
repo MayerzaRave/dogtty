@@ -1,0 +1,20 @@
+<div class="cardx">
+    <div class="content">
+        <div class="profile">
+            <%= image_tag 'care.png', class: 'walking' %>
+        </div>
+        <h2>Scheduled Cares</h2>
+    </div>
+    <ul class="navx hider-villa">
+        <% @cares.each do |care| %>
+            <li class = row>
+            <div class = "col"><h4><%= care.title %></h4>  <h5><%= care.schedule %></h5> <p><%= care.status %></p></div>
+            <div class = "col"><%= button_to 'Done', care_path(care), method: :patch, params: { status: 'done' }, class: "col btn btn-info ms-3"  unless care.status == "Accomplished" %></div>
+            <div class = "col"><%= link_to "Delete", care_path(care), data: {turbo_method: :delete} , class:"col btn btn-danger ms-3"%></div>
+            </li>
+        <% end %>
+    </ul>
+    <div class="toggle">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+    </div>
+</div>
