@@ -6,6 +6,7 @@
       <div class="welcome-text">
         <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
         <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+        <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
       <div class="home-img">
         <div class="img-pet">
@@ -41,7 +42,8 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
         <% if Pet.find(care.pet_id).photo.attached? %>
         <div id="tooltip">
-          <span id="tooltip-text">Ver mas</span>
+
+          <span id="tooltip-text"><%= care.title %></span>
           <div data-bs-toggle="modal" data-bs-target="#exampleModal">
             <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
           </div>

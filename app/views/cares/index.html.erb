@@ -1,24 +1,13 @@
-<section class="welcome">
-  <div class="container1">
-    <div class="row1">
-      <div class="welcome-text">
-        <h1>Citas de tu mascotas</h1>
-        <p>Echa un vistzo a todas las citas que han tenido tus mascotas y el detalle de estas</p>      </div>
-      <div class="home-img">
-        <div class="img-pet">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "card-img-top" %>
-          <% else %>
-            <%= image_tag "pet.jpg" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <%= image_tag 'doodle-4.png', class: 'doodles doodles-1' %>
-    <%= image_tag 'doodle-3.png', class: 'doodles doodles-2' %>
-  </div>
-</section>
-
+<div class="container" style="width: 600px">
+  <%= form_with url: cares_path, method: :get, class: "mt-5 d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search a care by title"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container mt-5">
   <div class="row d-flex">

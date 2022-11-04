@@ -15,7 +15,6 @@ class CaresController < ApplicationController
   def index
     # @cares = Care.all
     # @pets = Pet.where(user_id: current_user.id)
-    @cares = current_user.cares
     # @places =
     # @markers = @places.geocoded.map do |place|
     #   {
@@ -23,6 +22,12 @@ class CaresController < ApplicationController
     #     lng: place.longitude
     #   }
     # end
+
+    if params[:query].present?
+      @cares = Care.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @cares = current_user.cares
+    end
   end
 
   def destroy
