@@ -1,0 +1,5 @@
+meta_product_name: "Dogtty"
+meta_title: "Dogtty - Organize the cares of your pets"
+meta_description: "We help you take care of those you love the most, keep track of the care you take of your pets, getting closer and taking better care of them."
+meta_image: "meta_img.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
