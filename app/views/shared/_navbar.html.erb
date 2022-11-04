@@ -25,8 +25,8 @@
 </header>
 
 <script>
-  const navToggler = document.querySelector('.js-nav-toggler');
-  const nav = document.querySelector('.js-nav');
+  var navToggler = document.querySelector('.js-nav-toggler');
+  var nav = document.querySelector('.js-nav');
 
   function navToggle() {
     nav.classList.toggle("active");
@@ -37,8 +37,8 @@
 
 
   document.addEventListener('click', (event) => {
-    const isClickingInsideNav = nav.contains(event.target);
-    const isClickingInsideNavToggler = navToggler.contains(event.target);
+    var isClickingInsideNav = nav.contains(event.target);
+    var isClickingInsideNavToggler = navToggler.contains(event.target);
     if(!(isClickingInsideNav || isClickingInsideNavToggler) && nav.classList.contains("active")){
       navToggle();
     }
