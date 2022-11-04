@@ -6,6 +6,7 @@
       <div class="welcome-text">
         <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
         <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+        <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
       <div class="home-img">
         <div class="img-pet">
