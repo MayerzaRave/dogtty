@@ -360,3 +360,90 @@ img {
 .max-width-cancel{
   max-width: 100%!important;
 }
+
+// Show of pets card classes
+
+.navx {
+  position: relative;
+  top: 25px;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding: 20px 0;
+
+  li {
+    margin: 7px 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: $ligth-red;
+      font-size: 1.1em;
+      transition: color .26s;
+
+      &:hover {
+        color: $light-yellow;
+      }
+    }
+  }
+}
+
+.cardx {
+  position: relative;
+  width: 350px;
+  height: 120px;
+  overflow: hidden;
+  background: $white-alpha;
+  border-radius: 10px;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: height .5s ease-in-out;
+  .hider-villa{
+    visibility: hidden;
+    height: 0px;
+  }
+}
+
+.cardx:hover {
+  height: 500px;
+  overflow-y: scroll;
+  
+
+  .hider-villa{
+    visibility: visible;
+  }
+
+  .toggle ion-icon {
+    transform: rotate(-180deg);
+  }
+}
+
+.cardx.active {
+  height: 350px;
+}
+
+.cardx .content {
+  display: flex;
+  align-items: center;
+
+  .profile  {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .walking {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h2 {
+    margin-left: 15px;
+    font-size: 400;
+    color: $main-color;
+  }
+}

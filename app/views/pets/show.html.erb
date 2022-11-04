@@ -24,11 +24,34 @@
                     </div>
                   </div>
                   <div class="col-md-6 text-center">
-                    <% @cares.each do |care| %>
+                    
+                    <div class="cardx">
+                      <div class="content">
+                        <div class="profile">
+                          <%= image_tag 'care.png', class: 'walking' %>
+                        </div>
+                        <h2>Scheduled Cares</h2>
+                      </div>
+                      <ul class="navx hider-villa">
+                        <% @cares.each do |care| %>
+                          <li class = row>
+                            <p><%= care.title %>  <%= care.schedule %></p>
+                            <div class = "col"><%= button_to 'Done', care_path(care), method: :patch, params: { status: 'done' }, class: "btn btn-info ms-3"  unless care.status == "Accomplished" %></div>
+                            <div class = "col"><%= link_to "Delete", care_path(care), data: {turbo_method: :delete} , class:"col btn btn-danger mt-2"%></div>
+                          </li>
+                        <% end %> -->
+                      </ul>
+                      <div class="toggle">
+                        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+                      </div>
+                    </div>
+                    
+                    <!-- <% @cares.each do |care| %>
                       <div class="media">
                         <p><label><%= care.title %></label> <%= care.schedule %></p>
                       </div>
-                    <% end %>
+                    <% end %> -->
+                  
                   </div>
                 </div>
               </div>
