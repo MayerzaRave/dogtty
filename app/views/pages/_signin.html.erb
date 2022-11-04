@@ -41,7 +41,8 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
         <% if Pet.find(care.pet_id).photo.attached? %>
         <div id="tooltip">
-          <span id="tooltip-text">Ver mas</span>
+
+          <span id="tooltip-text"><%= care.title %></span>
           <div data-bs-toggle="modal" data-bs-target="#exampleModal">
             <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
           </div>
