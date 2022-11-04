@@ -32,7 +32,8 @@
 
 .section-title {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom
+  : 40px;
 
   .title {
     font-size: 18px;
@@ -56,4 +57,42 @@
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   gap: 30;
+}
+
+
+#tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+#tooltip-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+  background-color: $ligth-red;
+  color: #fff;
+  white-space: nowrap;
+  padding: 10px 15px;
+  border-radius: 7px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s ease;
+  margin: 25px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: 15px solid;
+    border-color: #ed7d7d transparent transparent transparent;
+  }
+}
+
+#tooltip:hover #tooltip-text {
+  top: -110%;
+  visibility: visible;
+  opacity: 1;
 }

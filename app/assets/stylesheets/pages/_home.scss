@@ -4,6 +4,7 @@
   width: 1170px;
   margin: auto;
   padding: 0 15px;
+  position: relative;
 }
 
 img {
@@ -51,6 +52,27 @@ img {
   grid-column: span 6;
   align-self: center ;
 }
+
+
+.doodles {
+  position: absolute;
+  height: 100px;
+  top: 0;
+  left: 0;
+  animation: rotate 20s ease-in-out 0s infinite;
+  z-index: -1;
+}
+
+.doodles-2{
+  top: 7%;
+  left: 4%;
+}
+
+.doodles-1{
+  top: 74%;
+  left: 28%;
+}
+
 
 // fancy-br box border-radius
 
