@@ -6,6 +6,7 @@
       <div class="welcome-text">
         <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
         <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+        <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
       <div class="home-img">
         <div class="img-pet">
@@ -17,6 +18,8 @@
         </div>
       </div>
     </div>
+    <%= image_tag 'doodle-4.png', class: 'doodles doodles-1' %>
+    <%= image_tag 'doodle-3.png', class: 'doodles doodles-2' %>
   </div>
 </section>
 
@@ -29,43 +32,46 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
 <section class="calendar">
   <div class="section-title">
-
+    <h2 class="title">Mi calendario</h2>
     <p class="sub-title">Aquí estan todas tus citas que tienes para esta semana</p>
   </div>
+
   <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
     <%= week_calendar(events: @cares, attribute: :schedule) do |date, cares| %>
       <% cares.each do |care| %>
+
         <% if Pet.find(care.pet_id).photo.attached? %>
+        <div id="tooltip">
 
-        <div data-bs-toggle="tooltip" data-bs-placement="top" title='Click to view details'>
-
+          <span id="tooltip-text"><%= care.title %></span>
           <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2" %>
+            <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
           </div>
-
-        </div>
         <% else %>
-        <div data-bs-toggle="tooltip" data-bs-placement="top" title='Click to view details'>
-          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <%= image_tag 'pet.jpg', class: "avatar my-2"  %>
+            <div id="tooltip">
+            <span id="tooltip-text"><%= care.title %></span>
+              <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <%= image_tag 'pet.jpg', class: "avatar my-2", style: "margin-left: 50px;"  %>
+            </div>
+            </div>
           </div>
-        </div>
         <% end %>
 
-
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"><%= care.title %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                ...
+                Cumpliste con esta cita? si es asi, dale al click a 'Listo' para que esta libere ese espacio en tu calendario
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Accomplished</button>
+                <%= link_to 'Detalles de esta cita', care_path(care), class: 'btn1' %>
+                <% if care.status == 'scheduled' %>
+                  <%= button_to 'Listo', care_path(care), method: :patch, params: { status: 'done' }, class: "btn1"  %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -81,7 +87,7 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 <div id="uno" class="services section-padding">
   <div class="container1">
     <div class="section-title">
-      <h2 class="title">servicios</h2>
+
       <p class="sub-title">Que quieres agendar hoy?</p>
     </div>
   </div>
