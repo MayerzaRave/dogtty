@@ -114,7 +114,7 @@
 
 "@mapbox/mapbox-gl-geocoder@^5.0.1":
   version "5.0.1"
-  resolved "https://registry.npmjs.org/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-5.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-5.0.1.tgz#3db39280175872bfd94884275c5ee528bdff35e0"
   integrity sha512-/OUL42eh4OBaIerhcwCpa27oD+u4a2xN8V7vEdsglwd8lCplFAxJCdwT9Kprli1TH5mTYsXyONmh03FwoWBWfA==
   dependencies:
     "@mapbox/mapbox-sdk" "^0.13.3"

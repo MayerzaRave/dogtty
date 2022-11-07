@@ -1,4 +1,4 @@
-<div class="container" style="width: 600px">
+<div class="container" style="width: 600px;">
   <%= form_with url: cares_path, method: :get, class: "mt-5 d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -56,6 +56,6 @@
 <div class='d-flex justify-content-center mb-3'>
   <div id='map' style='width: 600px; height: 300px;'
   data-controller="map"
-  data-map-api-key-value="pk.eyJ1IjoianVhbmNydiIsImEiOiJjbDl3eTByenowMWxqM3JxbDlqdDlscHN2In0.3NQA3MupOkea8XBC4Iz7TA">
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
