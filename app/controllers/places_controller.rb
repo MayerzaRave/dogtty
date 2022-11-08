@@ -1,4 +1,11 @@
 class PlacesController < ApplicationController
+  def index
+    @place = Place.new
+    @place.name = 'test'
+
+    @window = render_to_string(partial: "info_window", locals: { place: @place })
+  end
+
   def new
     @place = Place.new
   end
@@ -12,6 +19,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:care_id, :name, :address, :contact)
+    params.require(:place).permit(:care_id, :name, :address, :longitude, :latitude, :contact)
   end
 end
