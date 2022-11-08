@@ -4,8 +4,8 @@
   <div class="container1">
     <div class="row1">
       <div class="welcome-text">
-        <h1>Bienvenido de vuelta <%= current_user.first_name %></h1>
-        <p>Aquí encontraras toda tu información y proximas citas agendadas para tí y tu mascota.</p>
+        <h1>Welcome Back<%= current_user.first_name %></h1>
+        <p>Here you will find all the info and the dates scheduled for you and your pets.</p>
         <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
       <div class="home-img">
@@ -32,8 +32,8 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
 <section class="calendar">
   <div class="section-title">
-    <h2 class="title">Mi calendario</h2>
-    <p class="sub-title">Aquí estan todas tus citas que tienes para esta semana</p>
+    <h2 class="title">My schedule</h2>
+    <p class="sub-title">Here you have the dates for this week</p>
   </div>
 
   <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
@@ -65,12 +65,12 @@ pero como aun no han implementado nada lo voy a dejar asi %>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Cumpliste con esta cita? si es asi, dale al click a 'Listo' para que esta libere ese espacio en tu calendario
+                Did you kept the appointment? You just have to make click in 'Checked' for make it free from your schedule
               </div>
               <div class="modal-footer">
-                <%= link_to 'Detalles de esta cita', care_path(care), class: 'btn1' %>
+                <%= link_to 'Details', care_path(care), class: 'btn1' %>
                 <% if care.status == 'scheduled' %>
-                  <%= button_to 'Listo', care_path(care), method: :patch, params: { status: 'done' }, class: "btn1"  %>
+                  <%= button_to 'Checked', care_path(care), method: :patch, params: { status: 'done' }, class: "btn1"  %>
                 <% end %>
               </div>
             </div>
@@ -89,7 +89,7 @@ pero como aun no han implementado nada lo voy a dejar asi %>
   <div class="container1">
     <div class="section-title">
 
-      <p class="sub-title">Que quieres agendar hoy?</p>
+      <p class="sub-title">What do you want to schedule today?</p>
     </div>
   </div>
 
@@ -100,12 +100,12 @@ pero como aun no han implementado nada lo voy a dejar asi %>
         <div class="profile">
           <%= image_tag 'walking.svg', class: 'walking' %>
         </div>
-        <h2>Tiempo Juntos</h2>
+        <h2>Time together</h2>
       </div>
       <ul class="nav1">
-        <li><%= link_to 'Caminatas', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
-        <li><%= link_to 'Tiempo de juego', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
-        <li><%= link_to 'Alimentación', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+        <li><%= link_to 'Walks', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+        <li><%= link_to 'Play Time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+        <li><%= link_to 'Feedings', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
       </ul>
       <div class="toggle">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
@@ -117,12 +117,12 @@ pero como aun no han implementado nada lo voy a dejar asi %>
         <div class="profile">
           <%= image_tag 'vaccine.png', class: 'walking' %>
         </div>
-        <h2>Salud</h2>
+        <h2>Health</h2>
       </div>
       <ul class="nav1">
-        <li><%= link_to 'Vacunación', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
-        <li><%= link_to 'Desparacitación', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
-        <li><%= link_to 'Consultas', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+        <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+        <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+        <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
       </ul>
       <div class="toggle toggle2">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
@@ -135,11 +135,11 @@ pero como aun no han implementado nada lo voy a dejar asi %>
         <div class="profile">
           <%= image_tag 'facepalm.svg', class: 'walking' %>
         </div>
-        <h2>Belleza</h2>
+        <h2>Beauty</h2>
       </div>
       <ul class="nav1">
-        <li><%= link_to 'Baños', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
-        <li><%= link_to 'Cortes de uñas', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+        <li><%= link_to 'Shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+        <li><%= link_to 'Nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
       </ul>
       <div class="toggle toggle3">
         <ion-icon name="arrow-down-circle-outline"></ion-icon>

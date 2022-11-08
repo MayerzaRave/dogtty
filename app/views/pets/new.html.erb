@@ -1,7 +1,8 @@
+<div class = "container-sm mb-3">
 <%= simple_form_for @pet do |f| %>
     <%= f.input :name %>
     <%= f.input :specie %>
-    <%= f.input :birthday %>
+    <%= f.input :birthday, as: :date, html5: true %>
     <%= f.input :weight %>
     <%= f.input :weight_unit %>
     <%= f.input :breed %>
@@ -10,3 +11,4 @@
     <%# <%= f.collection_select :category_id, Category.order(:name), :id, :name  %>
     <%= f.submit "submit", class:"btn btn-primary" %>
 <% end %>
+</div>
