@@ -469,3 +469,8 @@ img {
     color: $main-color;
   }
 }
+.inline-text{
+  -webkit-text-stroke: 0.5px #f5e7c6ff;
+  background-color:#f5e7c6ff ;
+  border-radius: 5%;
+}

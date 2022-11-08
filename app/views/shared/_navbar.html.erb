@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-main">
       <div class="logo">
-        <%= link_to root_path, class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand inline-text" do %>
           <%= image_tag "icon.png" %>Dogtty
         <% end %>
       </div>
@@ -14,9 +14,10 @@
           <% if user_signed_in? %>
             <li style="--item:1"><%= link_to "My pet's cares", cares_path %></li>
             <li style="--item:2"><%= link_to "My pets", pets_path %></li>
-            <li style="--item:3"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+            <li style="--item:3"><%= link_to "Edit profile", edit_user_registration_path %></li>
+            <li style="--item:4"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
           <% else %>
-            <li style="--item:4"><%= link_to "Login", new_user_session_path %></li>
+            <li style="--item:5"><%= link_to "Login", new_user_session_path %></li>
           <% end %>
         </ul>
       </nav>
