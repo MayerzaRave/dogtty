@@ -6,7 +6,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet= Pet.find(params[:id])
+    @pet = Pet.find(params[:id])
     @cares = Care.where(pet_id: @pet)
   end
 
@@ -20,7 +20,7 @@ class PetsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
+
   def new
     @pet = Pet.new
   end
@@ -34,11 +34,6 @@ class PetsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-
-  def new
-    @pet = Pet.new
   end
 
   private
