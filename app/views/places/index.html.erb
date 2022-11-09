@@ -1,0 +1,43 @@
+<br><br>
+<div class="container d-flex justify-content-center mt-5" >
+
+  <div class="accordion">
+    <h3 class="text-center">Saved locations</h3>
+
+    <% @places.each do |place| %>
+
+      <div class="container-section">
+        <div class="label" data-action="click->map#fly"><%= place.name %></div>
+        <div class="content">
+          <% place.cares.each do |care| %>
+            <%= care.title %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+
+    <% end %>
+
+  </div>
+
+  <script>
+
+      const accordion = document.getElementsByClassName('container-section');
+
+      for (i=0; i<accordion.length; i++) {
+        accordion[i].addEventListener('click', function () {
+          this.classList.toggle('active')
+        })
+      }
+  </script>
+
+  <div id='map' style='width: 600px; height: 400px;'
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+<hr>
+
+<%= link_to 'Add a place', places_new_path, class:"btn btn-danger ms-5" %>

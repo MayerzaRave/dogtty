@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_131735) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_172248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,14 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_131735) do
 
   create_table "cares", force: :cascade do |t|
     t.string "category"
-    t.date "schedule"
+    t.datetime "schedule"
     t.string "status"
     t.string "title"
     t.text "details"
     t.bigint "pet_id", null: false
+    t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_cares_on_pet_id"
+    t.index ["place_id"], name: "index_cares_on_place_id"
   end
 
   create_table "deseases", force: :cascade do |t|
@@ -83,10 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_131735) do
     t.text "contact"
     t.float "latitude"
     t.float "longitude"
-    t.bigint "care_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["care_id"], name: "index_places_on_care_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_131735) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cares", "pets"
+  add_foreign_key "cares", "places"
   add_foreign_key "deseases", "pets"
   add_foreign_key "pets", "users"
-  add_foreign_key "places", "cares"
 end

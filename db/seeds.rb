@@ -13,7 +13,7 @@ Pet.destroy_all
 User.destroy_all
 i = 0
 
-10.times do
+2.times do
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
@@ -44,7 +44,6 @@ i = 0
   pet.birthday = Time.now
   pet.photo.attach(io: URI.open(PETS[i]), filename: "nes.png", content_type: "image/png")
   pet.save
-
 
   4.times do
     care = Care.new

@@ -103,6 +103,7 @@
           </div>
         <% else %>
           <div class = "col-md-7 align-items-center">
+          <div class = "col-md-5 align-items-center">
             <div class="align-items-center">
               <div class="about-text go-to">
                 <h3 class="dark-color text-center"><%= @pet.name %></h3>
@@ -121,12 +122,19 @@
                       <label>Breed</label>
                       <p class="max-width-cancel"><%= @pet.breed %></p>
                     </div>
+                    <div class = "col">
+                      <%= link_to "New Care", new_care_path , class: "btn btn-info ms-3" %>
+                    </div>
+                    <% unless @cares.length == 0 %>
+                      <div class = "col">
+                        <%= render 'cares_card', cares: @cares %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
           <div class = "col-md-5">
             <div class="align-items-center">
               <div class="about-avatar">
@@ -139,9 +147,7 @@
               <div class = "row">
                 <div class = "col">
                 </div>
-              <div class = "col">
-                <%= link_to "New Care", new_care_path , class: "btn btn-info ms-3" %>
-              </div>
+
               <div class = "col">
               </div>
             </div>

@@ -1,4 +1,5 @@
-<div class="container" style="width: 600px">
+<br><br>
+<div class="container" style="width: 600px;">
   <%= form_with url: cares_path, method: :get, class: "mt-5 d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -9,53 +10,37 @@
   <% end %>
 </div>
 
-<div class="container mt-5">
-  <div class="row d-flex">
+<br><br>
+
+<div class="container">
+  <div class="row row-cols-3">
+
     <% @cares.each do |care| %>
-      <div class="col-lg-4">
-        <div class="carding mb-2">
-          <div class="carding-body mt-2 pt-0">
-            <div class="widget-49">
-              <div class="general-info">
-                <div class="schedule">
-                  <span class="date-day"><%= care.created_at.day %></span>
-                  <span class="date-month"><%= care.created_at.month %></span>
-                </div>
-                <div class="info-care">
-                  <span class="title">Care: <%= care.title %></span>
-                  <span class="category">Category: <%= care.category %></span>
-                </div>
-              </div>
-              <ol class="info-list">
-                <li class="info-pet"><span>Pet: <%= Pet.find(care.pet_id).name %></span></li>
-                <li class="info-pet"><span>Status: <%= care.status %></span></li>
-              </ol>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex justify-content-between">
-                  <% if care.status == 'scheduled' %>
-                    <%= button_to 'Done', care_path(care), method: :patch, params: { status: 'done' }, class: "btn btn-info ms-3"  %>
-                    <%= link_to 'Reschedule', edit_care_path(care), class: "btn btn-info mb-3 ms-3"  %>
-                  <% end %>
-                </div>
-                <div class="redirect">
-                  <%= link_to 'View more', care_path(care), class: 'btn btn-sm btn-flash-border-primary' %>
-                </div>
-              </div>
+
+      <%= link_to care_path(care) do %>
+        <div class="col">
+          <div class="card-product mb-3 ms-3">
+            <% if Pet.find(care.pet_id).photo.attached? %>
+              <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "pet.jpg", size: "auto", class: "card-img-top"%>
+            <% end %>
+
+            <div class="card-product-infos">
+              <h5><%= care.title %></h5>
+              <p><%= care.category %></p>
+              <p><%= care.details %></p>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
+
     <% end %>
+
   </div>
 </div>
 
-<%= link_to "New Care", new_care_path , class: "btn btn-danger ms-2" %>
 
 <hr>
 
-<div class='d-flex justify-content-center mb-3'>
-  <div id='map' style='width: 600px; height: 300px;'
-  data-controller="map"
-  data-map-api-key-value="pk.eyJ1IjoianVhbmNydiIsImEiOiJjbDl3eTByenowMWxqM3JxbDlqdDlscHN2In0.3NQA3MupOkea8XBC4Iz7TA">
-  </div>
-</div>
+<%= link_to "New Care", new_care_path , class: "btn btn-danger mb-3 ms-5" %>

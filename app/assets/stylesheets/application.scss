@@ -15,6 +15,8 @@
 @import "cares/index";
 @import "cares/show";
 @import "devise/new";
+@import "places/index";
+@import "cares/new";
 @import "cares/new";
 @import "pets/show";
 
@@ -33,7 +35,7 @@ box-sizing: border-box;
 }
 
 body {
-  font-family: $my-font, sans-serif;
+  // font-family: $my-font, sans-serif;
   font-weight: 300;
   font-size: 16px;
   background-color: $body-bg-color;
