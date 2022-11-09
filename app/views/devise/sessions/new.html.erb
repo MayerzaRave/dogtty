@@ -4,11 +4,11 @@
     <div class="form-container sign-up-container">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
         <%= f.error_notification %>
-        <h1 class="form-title">Sign In</h1>
-        <span class="span-description">Already Have Account</span>
-        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'Email', label: false %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, placeholder: 'Password', label: false %>
-        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, placeholder: 'Confirm Password', label: false %>
+        <h1 class="form-title">Create Your Account</h1>
+        <span class="span-description">Create an account for free</span>
+        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'Email', label: false, class: 'new' %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, placeholder: 'Password', label: false, class: 'new' %>
+        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, placeholder: 'Confirm Password', label: false, class: 'new' %>
 
         <%= f.button :submit, "Sign Up", class: "btn1" %>
 
@@ -17,10 +17,10 @@
 
     <div class="form-container sign-in-container">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-        <h1 class="form-title">Create Your Account</h1>
-        <span class="span-description">Create an account for free</span>
-        <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'Email', label: false, class: 'mz-2' %>
-        <%= f.input :password, required: false, input_html: { autocomplete: "current-password" }, placeholder: 'Password', label: false, class: 'mz-2' %>
+        <h1 class="form-title">Sign In</h1>
+        <span class="span-description">Already have account</span>
+        <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'Email', label: false, class: 'mz-2 new' %>
+        <%= f.input :password, required: false, input_html: { autocomplete: "current-password" }, placeholder: 'Password', label: false, class: 'mz-2 new' %>
 
         <%= f.button :submit, "Login", class: "btn1" %>
 

@@ -1,22 +1,49 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
-<div class="container mt-5">
-  <%= simple_form_for @care do |f| %>
-    <div class="form-inputs">
-      <div class="form-field">
+
+<section class="get_in_touch">
+  <h1 class="new-title">Ingresa los datos de tu cita</h1>
+  <div class="container-new">
+    <%= simple_form_for @care do |f| %>
+    <div class="form-inputs row">
+
+      <div class="form-field col-lg-12">
+
         <%= f.association :pet, label: 'I want this Care for 👇', as: :check_boxes, collection: @pets, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        <%= f.input :category, collection: CATEGORIES, selected: 1, class: "input-text"%>
-        <%= f.input :title, collection: CARES, selected: 1, class: "input-text"%>
-        <%= f.input :schedule, as: :string, required: true, input_html: {class: "datepicker"} %>
-        <%= f.input :details %>
-
-        <%= f.input :title, input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-
       </div>
-    </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, 'Schedule!', class: 'btn btn-info' %>
-    </div>
-  <% end %>
-</div>
+      <div class="form-field col-lg-6">
+        <%= f.label :Category, class: 'label-service' %>
+        <%= f.input :category, collection: CATEGORIES, selected: 1, class: "input-text", placeholder: ' ', label: false %>
+      </div>
+
+      <div class="form-field col-lg-6">
+        <%= f.input :title, collection: CARES, selected: 1, class: "input-text" %>
+      </div>
+
+      <div class="form-field col-lg-6">
+        <%= f.label :Schedule, class: 'label-service' %>
+        <%= f.input :schedule, as: :string, required: true, input_html: {class: "datepicker"}, class: "input-text", label: false %>
+      </div>
+
+      <div class="form-field col-lg-6">
+        <%= f.input :details, label: false, class: 'input-text', placeholder: ' ' %>
+        <%= f.label :Details, class: 'label-service' %>
+      </div>
+
+      <div class="form-field col-lg-12">
+        <%= f.label :Title_Card, class: 'label-service' %>
+        <%= f.input :title, input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false, class: 'input-text', placeholder: ' ' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, 'Schedule!', class: 'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<style>
+
+
+</style>

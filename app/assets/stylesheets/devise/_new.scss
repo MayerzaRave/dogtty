@@ -58,32 +58,10 @@
 .form-container input {
   background: transparent;
   border: none;
-  padding: 12px 15px;
+  padding: 10px 0px;
   margin: auto;
-  width: 100%;
-}
-
-.button {
-  color: #111;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 12px 35px;
-  margin-top: 15px;
-  border: 1px solid #ff4b2b;
-  border-radius: 20px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
-}
-
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="password_confirmation"] {
-  width: 240px;
+  width: 280px;
   text-align: center;
-  background: transparent;
-  border: none;
   border-bottom: 1px solid #fff;
   font-weight: 200;
   font-size: 16px;
@@ -105,6 +83,19 @@ input[type="password_confirmation"] {
     font-weight: 400;
   }
 }
+
+.button {
+  color: #111;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 35px;
+  margin-top: 15px;
+  border: 1px solid #ff4b2b;
+  border-radius: 20px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
 
 .button:active {
   transform: scale(.95);
