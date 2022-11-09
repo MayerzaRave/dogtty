@@ -45,7 +45,6 @@ i = 0
   pet.photo.attach(io: URI.open(PETS[i]), filename: "nes.png", content_type: "image/png")
   pet.save
 
-
   4.times do
     care = Care.new
     care.category = %w[health beauty play].sample

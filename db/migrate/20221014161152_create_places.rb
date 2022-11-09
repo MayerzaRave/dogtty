@@ -6,7 +6,6 @@ class CreatePlaces < ActiveRecord::Migration[7.0]
       t.text :contact
       t.float :latitude
       t.float :longitude
-      t.references :care, null: false, foreign_key: true
 
       t.timestamps
     end

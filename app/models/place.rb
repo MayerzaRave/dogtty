@@ -1,5 +1,5 @@
 class Place < ApplicationRecord
-  belongs_to :care
+  has_many :cares
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
