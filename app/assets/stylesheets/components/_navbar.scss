@@ -100,7 +100,7 @@
     transition-delay: calc(0.05s * var(--item));
   }
 
-  a {
+  a, p {
     display: block;
     padding: 8px 30px;
     font-weight: 500;
@@ -143,6 +143,3 @@
 .nav li:last-child{
   border-radius: 0 0 10px 10px;
 }
-
-
-// BOARR TORDO ESTE MIERDERO

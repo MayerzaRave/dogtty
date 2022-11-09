@@ -34,3 +34,11 @@
   line-height: 26px;
   font-weight: 400;
 }
+
+.sub-item {
+  display: none;
+}
+
+.js-sub-li.active {
+  display: block;
+}

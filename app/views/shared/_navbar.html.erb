@@ -12,17 +12,40 @@
       <nav class="nav js-nav">
         <ul>
           <% if user_signed_in? %>
-            <li style="--item:1"><%= link_to "My pet's cares", cares_path %></li>
-            <li style="--item:2"><%= link_to "My pets", pets_path %></li>
-            <li style="--item:3"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+            <li><%= link_to "My pet's cares", cares_path %></li>
+            <li class="js-li"><a style="cursor: pointer;">My Pets</a></li>
+              <ul class="sub-list">
+                <% if current_user.pets == 0 %>
+                  <p>no hay nada aun</p>
+                  <%= link_to 'New Pet', new_pet_path, class: 'js-sub-li' %>
+                <% else %>
+                  <% current_user.pets.each do |pet| %>
+                    <li class="sub-item js-sub-li"><%= link_to pet.name, pet_path(pet) %></li>
+                    <%# <li class="sub-item js-sub-li2"><a href="#">pets</a></li> %>
+                  <% end %>
+                  <li><%= link_to 'New Pet', new_pet_path, class: 'js-sub-li' %></li>
+                <% end %>
+              </ul>
+            <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
           <% else %>
-            <li style="--item:4"><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
         </ul>
       </nav>
     </div>
   </div>
 </header>
+
+<script>
+// intento de hacer la funcionalidad de ver las mascotas
+
+  var mainLi = document.querySelector('.js-li');
+  var subLi = document.querySelector(".js-sub-li");
+
+  mainLi.onclick = function () {
+    subLi.classList.toggle("active");
+  }
+</script>
 
 <script>
   var navToggler = document.querySelector('.js-nav-toggler');
