@@ -1,19 +1,17 @@
-h1 {
+h3 {
   font-size: 30px;
   font-family: $headers-font;
   margin: 0;
   font-weight: 400;
   line-height: 20px;
   padding: 15px 0px;
-  background-color: $light-yellow;
+  background-color: $main-color;
 }
 
 .accordion {
-  position: relative;
-  left: 100px;
   width: 400px;
   color: $black-light;
-  background-color: $header;
+  background-color: $body-bg-color;
   height: 400px;
 }
 

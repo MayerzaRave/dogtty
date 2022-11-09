@@ -1,29 +1,20 @@
+<br><br>
 <div class="container d-flex justify-content-center mt-5" >
-  <div id='map' style='width: 600px; height: 400px;'
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
+  <div class="accordion">
+    <h3 class="text-center">Saved locations</h3>
+
+    <% @places.each do |place| %>
+
+      <div class="container-section">
+        <div class="label" data-action="click->map#fly"><%= place.name %></div>
+        <div class="content"><%= place.address %></div>
+      </div>
+      <hr>
+
+    <% end %>
 
   </div>
-
-
-   <div class="accordion">
-      <h1 class="text-center">Saved locations</h1>
-
-
-      <% @places.each do |place| %>
-
-        <div class="container-section">
-          <div class="label" data-action="click->map#fly"><%= place.name %></div>
-          <div class="content"><%= place.address %></div>
-        </div>
-        <hr>
-
-      <% end %>
-
-    </div>
-
 
   <script>
 
@@ -35,6 +26,12 @@
         })
       }
   </script>
+
+  <div id='map' style='width: 600px; height: 400px;'
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
 <%= link_to 'go to home', root_path %>
