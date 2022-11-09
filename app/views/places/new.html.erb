@@ -1,4 +1,5 @@
-<div class="container mt-5">
+<br><br>
+<div class="container mb-3">
   <%= simple_form_for @place do |f| %>
     <div class="form-inputs">
       <div class="form-field">
@@ -9,9 +10,9 @@
         <div id='map' style='width: 600px; height: 300px;'
           data-controller="address-autocomplete"
           data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}} %>
-          <%= f.input :longitude, input_html: {data: {address_autocomplete_target: "longitude"}} %>
-          <%= f.input :latitude, input_html: {data: {address_autocomplete_target: "latitude"}} %>
+          <% f.input :address, input_html: {data: {address_autocomplete_target: "address"}} %>
+          <% f.input :longitude, input_html: {data: {address_autocomplete_target: "longitude"}} %>
+          <% f.input :latitude, input_html: {data: {address_autocomplete_target: "latitude"}} %>
         </div>
 
       </div>
