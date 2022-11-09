@@ -1,0 +1,78 @@
+h1 {
+  font-size: 30px;
+  font-family: $headers-font;
+  margin: 0;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 15px 0px;
+  background-color: $light-yellow;
+}
+
+.accordion {
+  position: relative;
+  left: 100px;
+  width: 400px;
+  color: $black-light;
+  background-color: $header;
+  height: 400px;
+}
+
+.accordion .container-section {
+  position: relative;
+  margin: 10px 0px;
+}
+
+/* Position the labels relative to the .container. Add padding to the top and bottom and increase font size. Also make it's cursor a pointer */
+
+.accordion .label {
+  position: relative;
+  width: 380px;
+  padding-right: 10px;
+  font-size: 22px;
+  color: black;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.accordion .label::before {
+  content: '+';
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  font-size: 30px;
+  transform: translateY(-50%);
+}
+
+/* Hide the content (height: 0), decrease font size, justify text and add transition */
+
+.accordion .content {
+  padding: 0px 5px;
+  position: relative;
+  background: white;
+  height: 0;
+  font-size: 20px;
+  text-align: justify;
+  width: 400px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+/* Add a horizontal line between the contents */
+
+.accordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
+}
+
+.accordion .container-section.active .content {
+  height: 150px;
+}
+
+/* Changes from plus sign to negative sign once active */
+
+.accordion .container-section.active .label::before {
+  content: '-';
+  font-size: 30px;
+}
