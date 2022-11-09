@@ -10,9 +10,9 @@
         <div id='map' style='width: 600px; height: 300px;'
           data-controller="address-autocomplete"
           data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          <% f.input :address, input_html: {data: {address_autocomplete_target: "address"}} %>
-          <% f.input :longitude, input_html: {data: {address_autocomplete_target: "longitude"}} %>
-          <% f.input :latitude, input_html: {data: {address_autocomplete_target: "latitude"}} %>
+          <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}} %>
+          <%= f.input :longitude, input_html: {data: {address_autocomplete_target: "longitude"}} %>
+          <%= f.input :latitude, input_html: {data: {address_autocomplete_target: "latitude"}} %>
         </div>
 
       </div>
