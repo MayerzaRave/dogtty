@@ -1,0 +1,61 @@
+body.homepage {
+  // some css for homepage elements
+  background-image: url('assets/images/liquid-cheese.png ');
+}
+
+.background {
+  max-width: 100%;
+  max-height: 100%;
+  background: #fff;
+}
+
+.bg-color {
+  background: $body-bg-color;
+  margin: auto;
+  max-width: 700px;
+  padding: 100px 30px;
+  border-radius: 13px;
+}
+
+.name-pet {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.breed-pet {
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.info-section label {
+  color: #20247b;
+  font-weight: 600;
+  width: 88px;
+  margin: 0;
+  position: relative;
+
+  p {
+    margin: 0;
+    font-size: 15px;
+  }
+}
+
+.card-img-top {
+  max-width: 100%;
+}
+
+.btn-margin {
+  margin-top: 12px;
+  margin-left: 5rem;
+  border-radius: 6px;
+}
+
+.pending-cares {
+  padding-top: 12px;
+  border-top: 1px solid $border-color-2;
+}

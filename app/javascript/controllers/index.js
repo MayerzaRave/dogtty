@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import Showhide_controller from "./showhide_controller";
+application.register("showhide", Showhide_controller)

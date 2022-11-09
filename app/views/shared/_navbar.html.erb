@@ -27,6 +27,17 @@
 </header>
 
 <script>
+// intento de hacer la funcionalidad de ver las mascotas
+
+  var mainLi = document.querySelector('.js-li');
+  var subLi = document.querySelector(".js-sub-li");
+
+  mainLi.onclick = function () {
+    subLi.classList.toggle("active");
+  }
+</script>
+
+<script>
   var navToggler = document.querySelector('.js-nav-toggler');
   var nav = document.querySelector('.js-nav');
 
