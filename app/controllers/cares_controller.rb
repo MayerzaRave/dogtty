@@ -68,7 +68,7 @@ class CaresController < ApplicationController
   end
 
   def care_params
-    params.require(:care).permit(:pet_id, :category, :schedule, :status, :title, :details)
+    params.require(:care).permit(:pet_id, :place_id, :category, :schedule, :status, :title, :details)
   end
 
   def set_category_and_title

@@ -8,7 +8,11 @@
 
       <div class="container-section">
         <div class="label" data-action="click->map#fly"><%= place.name %></div>
-        <div class="content"><%= place.address %></div>
+        <div class="content">
+          <% place.cares.each do |care| %>
+            <%= care.title %>
+          <% end %>
+        </div>
       </div>
       <hr>
 
@@ -34,4 +38,6 @@
   </div>
 </div>
 
-<%= link_to 'go to home', root_path %>
+<hr>
+
+<%= link_to 'Add a place', places_new_path, class:"btn btn-danger ms-5" %>

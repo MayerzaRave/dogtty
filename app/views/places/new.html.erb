@@ -1,11 +1,10 @@
-<br><br>
+<br><br><br>
 <div class="container mb-3">
   <%= simple_form_for @place do |f| %>
     <div class="form-inputs">
       <div class="form-field">
-        <%= f.association :care, label: 'Care 👇', collection: Care.all %>
         <%= f.input :name %>
-
+        <%= f.input :contact %>
 
         <div id='map' style='width: 600px; height: 300px;'
           data-controller="address-autocomplete"
@@ -19,7 +18,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, 'Set!', class: 'btn btn-info mt-3' %>
+      <%= f.button :submit, 'Set!', class: 'btn btn-danger mb-5' %>
     </div>
   <% end %>
 </div>

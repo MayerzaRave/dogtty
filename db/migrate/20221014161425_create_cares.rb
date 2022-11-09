@@ -7,6 +7,7 @@ class CreateCares < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :details
       t.references :pet, null: false, foreign_key: true
+      t.references :place, null: true, foreign_key: true
 
       t.timestamps
     end
