@@ -9,9 +9,6 @@
         <%= f.input :title, collection: CARES, selected: 1, class: "input-text"%>
         <%= f.input :schedule, as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :details %>
-
-        <%= f.input :title, input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-
       </div>
     </div>
 
