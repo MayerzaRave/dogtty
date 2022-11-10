@@ -48,6 +48,7 @@
                 <% end %>
               <div class = "col">
                 <%= link_to "New Care", new_care_path , class: "btn btn-info btn-margin" %>
+                <%= link_to "PDF", pet_path(pet, format: :pdf) , class: "btn btn-danger btn-margin" %>
               </div>
             </div>
           </div>

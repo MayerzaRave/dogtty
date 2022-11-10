@@ -8,6 +8,18 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @cares = Care.where(pet_id: @pet)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "pet",
+               template: "pets/show",
+               formats: [:pdf],
+               disposition: 'attachment',
+               layout: "pdf",
+               locals: { pet: @pet }
+      end
+    end
   end
 
   def edit
