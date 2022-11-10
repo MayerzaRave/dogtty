@@ -8,6 +8,8 @@
     "@popperjs/core": "^2.11.6",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.2",
+    "chart.js": "^3.9.1",
+    "chartkick": "^4.2.0",
     "flatpickr": "^4.6.13",
     "mapbox-gl": "^2.10.0",
     "webpack": "^5.74.0",
