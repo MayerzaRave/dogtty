@@ -41,3 +41,17 @@
 <hr>
 
 <%= link_to 'Add a place', places_new_path, class:"btn btn-danger ms-5" %>
+
+
+        <style>
+        .custom-tooltip {
+  --bs-tooltip-bg: var(--bs-primary);
+}
+</style>
+
+          <button type="button" class="btn btn-secondary"
+                  data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-custom-class="custom-tooltip"
+                  data-bs-title="This top tooltip is themed via CSS variables.">
+            tooltip
+          </button>
