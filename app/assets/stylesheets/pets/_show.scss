@@ -10,11 +10,12 @@ body.homepage {
 }
 
 .bg-color {
-  background: $body-bg-color;
+  background: #f1dba7;
   margin: auto;
-  max-width: 700px;
+  max-width: 550px;
   padding: 100px 30px;
   border-radius: 13px;
+  border: 1px solid #ffffff80;
 }
 
 .name-pet {
@@ -51,7 +52,7 @@ body.homepage {
 
 .btn-margin {
   margin-top: 12px;
-  margin-left: 5rem;
+  margin-left: 3rem;
   border-radius: 6px;
 }
 
