@@ -57,6 +57,8 @@ gem 'faker', '~> 2.23'
 gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
 gem 'popper_js', '~> 2.11', '>= 2.11.6'
 gem 'geocoder', '~> 1.8', '>= 1.8.1'
+gem 'chartkick', '~> 4.2', '>= 4.2.1'
+gem 'groupdate', '~> 6.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

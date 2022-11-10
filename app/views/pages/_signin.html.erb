@@ -41,6 +41,10 @@ pero como aun no han implementado nada lo voy a dejar asi %>
       <% cares.each do |care| %>
 
         <% if Pet.find(care.pet_id).photo.attached? %>
+
+
+
+
         <div id="tooltip">
 
           <span id="tooltip-text"><%= care.title %></span>

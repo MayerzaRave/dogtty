@@ -31,11 +31,6 @@
         <%= f.label :Details, class: 'label-service' %>
       </div>
 
-      <div class="form-field col-lg-12">
-        <%= f.label :Title_Card, class: 'label-service' %>
-        <%= f.input :title, input_html: {data: {address_autocomplete_target: "address"}}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, label: false, class: 'input-text', placeholder: ' ' %>
-      </div>
-
       <div class="form-actions">
         <%= f.button :submit, 'Schedule!', class: 'btn btn-info' %>
       </div>
@@ -43,7 +38,8 @@
   </div>
 </section>
 
-<style>
+<hr>
 
-
-</style>
+<%= link_to root_path do %>
+  <i class="text-end fa-solid fa-house ms-5 my-3" style="font-size: 25px;"></i><span>  Back to home</span>
+<% end %>

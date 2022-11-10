@@ -18,4 +18,8 @@
   <% end %>
 </div>
 
+<%= line_chart User.group_by_day(:created_at).count %>
+
+<hr>
+
 <%= link_to 'New pet', new_pet_path, class: 'btn btn-info m-3' %>
