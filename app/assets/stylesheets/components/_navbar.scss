@@ -110,6 +110,14 @@
     text-transform: capitalize;
     position: relative;
   }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: $black-light;
+    }
+  }
 }
 
 .nav a::before {
