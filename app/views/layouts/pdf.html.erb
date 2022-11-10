@@ -10,8 +10,7 @@
   </head>
   <body>
     <div id="header">
-    <%= render "/pets/show" %>
-      <!--= wicked_pdf_image_tag 'thumbnail.png', height: "30", width: "auto"-->
+      <%= render "/pets/show", pet: @pet %>
     </div>
     <%= yield %>
   </body>

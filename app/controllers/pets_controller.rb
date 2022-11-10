@@ -12,7 +12,12 @@ class PetsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "pet", template: "pets/show", formats: [:html], disposition: 'attachment', layout: "pdf"
+        render pdf: "pet",
+               template: "pets/show",
+               formats: [:pdf],
+               disposition: 'attachment',
+               layout: "pdf",
+               locals: { pet: @pet }
       end
     end
   end
