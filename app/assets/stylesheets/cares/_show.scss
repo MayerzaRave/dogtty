@@ -1,110 +1,45 @@
-body{
-  color: #6F8BA4;
-  margin-top:20px;
+.care-container {
+  margin: 10% auto;
+  background-color: burlywood;
+  width: 795px;
+  border-radius: 14px;
 }
 
-.carding {
-  border: 0;
-  box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
-}
-.carding {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #ffffff;
-  background-clip: border-box;
-  border: 1px solid #e6e4e9;
-  border-radius: 8px;
+.card-img-care {
+  max-width: 100%;
+  margin-top: 33px;
+  margin-left: -21px;
+  border-radius: 10px;
 }
 
-.carding .carding-header.no-border {
-  border: 0;
-}
-.carding .carding-header {
-  background: none;
-  padding: 0 0.9375rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  min-height: 50px;
-}
-.carding-header:first-child {
-  border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
-}
+.care-info-container {
+  padding: 25px;
+  margin-left: -8px;
 
-.widget-49 .general-info {
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
-}
+  h2 {
+    text-transform: capitalize;
+    font-weight: 700;
+  }
 
-.widget-49 .general-info .schedule {
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-background-color: #edf1fc;
-width: 4rem;
-height: 4rem;
-border-radius: 50%;
-}
+  h6 {
+    text-transform: capitalize;
+    font-weight: 600;
+  }
 
-.widget-49 .general-info .schedule .date-day {
-color: #4e73e5;
-font-weight: 500;
-font-size: 1.5rem;
-line-height: 1;
-}
-
-.widget-49 .general-info .schedule .date-month {
-color: #4e73e5;
-line-height: 1;
-font-size: 1rem;
-text-transform: uppercase;
-}
-
-.widget-49 .general-info .info-care {
-display: flex;
-flex-direction: column;
-margin-left: 1rem;
-}
-
-.widget-49 .general-info .info-care .title {
-color: #3c4142;
-font-size: 14px;
-}
-
-.widget-49 .general-info .info-care .category {
-color: #B1BAC5;
-font-size: 13px;
-}
-
-.widget-49 .info-list {
-font-weight: 400;
-font-size: 13px;
-margin-top: .5rem;
-}
-
-.widget-49 .info-list .info-pet {
-display: list-item;
-color: #727686;
-}
-
-.widget-49 .info-list .info-pet span {
-margin-left: .5rem;
-}
-
-.widget-49 .redirect {
-  text-align: right;
-
-  &:hover {
-    color: #4e73e5;
-    transition: .4s;
+  p {
+    font-weight: 500;
   }
 }
 
-.widget-49 .redirect a {
-text-transform: uppercase;
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 11px;
+  margin-left: -4px;
+  margin-right: 42px;
+}
+
+.home-button {
+  margin-top: 88px;
+  direction: rtl;
 }
