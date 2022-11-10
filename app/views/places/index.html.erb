@@ -1,35 +1,41 @@
 <br><br>
 <div class="container d-flex justify-content-center mt-5" >
 
-  <div class="accordion">
-    <h3 class="text-center">Saved locations</h3>
+
+
+  <div class="accordion" id="accordionExample">
+
 
     <% @places.each do |place| %>
 
-      <div class="container-section">
-        <div class="label" data-action="click->map#fly"><%= place.name %></div>
-        <div class="content">
-          <% place.cares.each do |care| %>
-            <%= care.title %>
-          <% end %>
+
+
+
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading<%= place.id %>">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= place.id %>" aria-expanded="true" aria-controls="collapse<%= place.id %>">
+            <%= place.name %>
+          </button>
+        </h2>
+        <div id="collapse<%= place.id %>" class="accordion-collapse collapse in" aria-labelledby="heading<%= place.id %>" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <% place.cares.each do |care| %>
+              <p><%= care.title %></p>
+            <% end %>
+          </div>
         </div>
       </div>
-      <hr>
+
+
 
     <% end %>
 
   </div>
 
-  <script>
 
-      const accordion = document.getElementsByClassName('container-section');
 
-      for (i=0; i<accordion.length; i++) {
-        accordion[i].addEventListener('click', function () {
-          this.classList.toggle('active')
-        })
-      }
-  </script>
 
   <div id='map' style='width: 600px; height: 400px;'
     data-controller="map"
@@ -41,17 +47,3 @@
 <hr>
 
 <%= link_to 'Add a place', places_new_path, class:"btn btn-danger ms-5" %>
-
-
-        <style>
-        .custom-tooltip {
-  --bs-tooltip-bg: var(--bs-primary);
-}
-</style>
-
-          <button type="button" class="btn btn-secondary"
-                  data-bs-toggle="tooltip" data-bs-placement="top"
-                  data-bs-custom-class="custom-tooltip"
-                  data-bs-title="This top tooltip is themed via CSS variables.">
-            tooltip
-          </button>

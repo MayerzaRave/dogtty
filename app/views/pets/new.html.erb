@@ -1,4 +1,5 @@
-<div class = "container-sm mb-3">
+<br><br><br>
+<div class = "container mb-5" style="width: 800px;">
 <%= simple_form_for @pet do |f| %>
     <%= f.input :name %>
     <%= f.input :specie %>
@@ -9,6 +10,6 @@
     <%=f.input :photo, as: :file %>
     <%# <%= f.input :category_id, collection: [Category.order(:name)], as: :radio_buttons, wrapper: :vertical_collection_inline  %>
     <%# <%= f.collection_select :category_id, Category.order(:name), :id, :name  %>
-    <%= f.submit "submit", class:"btn btn-primary" %>
+    <%= f.submit "submit", class:"btn btn-danger" %>
 <% end %>
 </div>

@@ -4,7 +4,7 @@
   <div class="container1">
     <div class="row1">
       <div class="welcome-text">
-        <h1>Welcome Back<%= current_user.first_name %></h1>
+        <h1>Welcomeback<br><%= current_user.first_name %></h1>
         <p>Here you will find all the info and the dates scheduled for you and your pets.</p>
         <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
@@ -23,16 +23,11 @@
   </div>
 </section>
 
-
-<%# Aqui posiblemente haya una seccion de stats,
-pero como aun no han implementado nada lo voy a dejar asi %>
-
-
 <!--Inicio de la sección del calendario-->
+<br>
 
 <section class="calendar">
   <div class="section-title">
-
     <p class="sub-title">Here you have the dates for this week</p>
   </div>
 
@@ -42,44 +37,49 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 
         <% if Pet.find(care.pet_id).photo.attached? %>
 
-
-
-
-        <div id="tooltip">
-
-          <span id="tooltip-text"><%= care.title %></span>
-          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
+          <div id="tooltip">
+            <span id="tooltip-text"><%= care.title %></span>
+            <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
+            </div>
           </div>
         <% else %>
-            <div id="tooltip">
+
+          <div id="tooltip">
             <span id="tooltip-text"><%= care.title %></span>
-              <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <%= image_tag 'pet.jpg', class: "avatar my-2", style: "margin-left: 50px;"  %>
-            </div>
+            <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <%= image_tag 'pet.jpg', class: "avatar my-2", style: "margin-left: 50px;"  %>
             </div>
           </div>
+
         <% end %>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
+
+
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<%= care.id %>">
+          View details
+        </button>
+
+
+        <div class="modal fade" id="exampleModal<%= care.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><%= care.title %></h5>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><%= care.title %></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Did you kept the appointment? You just have to make click in 'Checked' for make it free from your schedule
+                ...
               </div>
               <div class="modal-footer">
-                <%= link_to 'Details', care_path(care), class: 'btn1' %>
-                <% if care.status == 'scheduled' %>
-                  <%= button_to 'Checked', care_path(care), method: :patch, params: { status: 'done' }, class: "btn1"  %>
-                <% end %>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
         </div>
+
+
 
       <% end %>
     <% end %>
@@ -89,68 +89,69 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 <!--Inicio de la seccion de servicios-->
 
 <div class="container">
-<div id="uno" class="services section-padding">
-  <div class="container1">
-    <div class="section-title">
+  <div id="uno" class="services section-padding">
+    <div class="container1">
+      <div class="section-title">
+        <p class="sub-title">What do you want to schedule today?</p>
+      </div>
+    </div>
 
-      <p class="sub-title">What do you want to schedule today?</p>
+    <div class="row" style="justify-content: space-around;">
+
+      <div class="card">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'walking.svg', class: 'walking' %>
+          </div>
+          <h2>Time together</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'Walks', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+          <li><%= link_to 'Play Time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+          <li><%= link_to 'Feedings', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+        </ul>
+        <div class="toggle">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="card card2">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'vaccine.png', class: 'walking' %>
+          </div>
+          <h2>Health</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+          <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+          <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+        </ul>
+        <div class="toggle toggle2">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
+
+
+      <div class="card card3">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'facepalm.svg', class: 'walking' %>
+          </div>
+          <h2>Beauty</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'Shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+          <li><%= link_to 'Nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+        </ul>
+        <div class="toggle toggle3">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="row" style="justify-content: space-around;">
-
-    <div class="card">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'walking.svg', class: 'walking' %>
-        </div>
-        <h2>Time together</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'Walks', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
-        <li><%= link_to 'Play Time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
-        <li><%= link_to 'Feedings', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
-      </ul>
-      <div class="toggle">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
-
-    <div class="card card2">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'vaccine.png', class: 'walking' %>
-        </div>
-        <h2>Health</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
-        <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
-        <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
-      </ul>
-      <div class="toggle toggle2">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
-
-
-    <div class="card card3">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'facepalm.svg', class: 'walking' %>
-        </div>
-        <h2>Beauty</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'Shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
-        <li><%= link_to 'Nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
-      </ul>
-      <div class="toggle toggle3">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
 </div>
-
+<%# final de la seccion services  %>
 
 <script>
   const card = document.querySelector(".card");
@@ -163,7 +164,6 @@ pero como aun no han implementado nada lo voy a dejar asi %>
 </script>
 </section>
 
-<%# final de la seccion services  %>
 
 <script>
   const card2 = document.querySelector(".card2");
