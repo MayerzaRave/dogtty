@@ -12,10 +12,11 @@
       <nav class="nav js-nav">
         <ul>
           <% if user_signed_in? %>
-            <li style="--item:1"><%= link_to "My pet's cares", cares_path %></li>
-            <li style="--item:2"><%= link_to "My pets", pets_path %></li>
-            <li style="--item:3"><%= link_to "My account", edit_user_registration_path %></li>
-            <li style="--item:4"><%= link_to "Places", places_path %></li>
+
+            <li style="--item:1"><%= link_to cares_path do %><i class="fa-solid fa-list"></i>  My pet's cares<% end %></li>
+            <li style="--item:2"><%= link_to pets_path do %><i class="fa-solid fa-paw"></i>  My pets<% end %></li>
+            <li style="--item:3"><%= link_to places_path do %><i class="fa-solid fa-map-location-dot"></i>  Places<% end %></li>
+            <li style="--item:4"><%= link_to edit_user_registration_path do %><i class="fa-solid fa-user"></i> Edit account<% end %></li>
             <li style="--item:5"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
           <% else %>
             <li style="--item:5"><%= link_to "Login", new_user_session_path %></li>
