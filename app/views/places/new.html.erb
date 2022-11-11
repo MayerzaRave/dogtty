@@ -1,3 +1,28 @@
+
+<div class="map-form">
+  <div class="form-map-side">
+    <%= simple_form_for @place do |f| %>
+      <div class="info-map">
+        <h1>Add a new place</h1>
+        <%= f.input :name %>
+        <%= f.input :contact %>
+        <%= f.button :submit, 'Set!', class: 'btn btn-danger mb-5' %>
+      </div>
+      <div class="map-position">
+        <div id='map' class="map" style='width: 64%;height: 299px;margin: -17px auto;margin-bottom: 4%;bottom: 13px;border-radius: 13px;' data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}} %>
+          <%= f.input :longitude, input_html: {data: {address_autocomplete_target: "longitude"}} %>
+          <%= f.input :latitude, input_html: {data: {address_autocomplete_target: "latitude"}} %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--
 <br><br><br>
 <div class="container mb-3">
   <%= simple_form_for @place do |f| %>
@@ -18,7 +43,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, 'Set!', class: 'btn btn-danger mb-5' %>
+      <%= f.button :submit, 'Set!', class: 'btn btn-danger mb-6' %>
     </div>
   <% end %>
 </div>
+-->
