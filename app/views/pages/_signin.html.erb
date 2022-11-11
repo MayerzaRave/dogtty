@@ -1,5 +1,5 @@
 <!--Inicio de la seccion de bienvenida-->
-
+<br>
 <section class="welcome">
   <div class="container1">
     <div class="row1">
@@ -37,6 +37,7 @@
 
         <% if Pet.find(care.pet_id).photo.attached? %>
 
+
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= care.id %>">
             <div id="tooltip">
               <span id="tooltip-text"><%= care.title %></span>
@@ -44,17 +45,22 @@
                 <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
               </div>
             </div>
+
             <i class="fa-solid fa-circle-info" style="font-size: 20px;"></i>
           </button>
 
-        <% else %>
 
+        <% else %>
+           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= care.id %>">
           <div id="tooltip">
             <span id="tooltip-text"><%= care.title %></span>
             <div data-bs-toggle="modal" data-bs-target="#exampleModal">
               <%= image_tag 'pet.jpg', class: "avatar my-2", style: "margin-left: 50px;"  %>
             </div>
           </div>
+            <i class="fa-solid fa-circle-info" style="font-size: 20px;"></i>
+          </button>
+
 
         <% end %>
 
@@ -67,11 +73,30 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
+
+                <% if care.status == 'scheduled' || care.schedule > Time.now %>
+
                 <%= care.details %>
-              </div>
+
+
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <%= button_to 'Done', care_path(care), method: :patch, params: { status: 'done' }, class: "btn btn-info"  %>
+                <%= link_to "More details", care_path(care), class:"btn btn-danger" %>
+              </div>
+
+                <% else %>
+
+                  <h1>Ups!!! You missed It 🧐</h1>
+                  <div class="modal-footer">
+                    <%= link_to "Delete", care_path(care), data: {turbo_method: :delete}, class:"btn btn-danger"%>
+                    <%= link_to "Reschedule", edit_care_path(care), class:"btn btn-info" %>
+                  </div>
+
+
+                <% end %>
+
+
+
               </div>
             </div>
           </div>
@@ -104,7 +129,7 @@
           <h2>Time together</h2>
         </div>
         <ul class="nav1">
-          <li><%= link_to 'Walks', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+          <li><%= link_to 'Walks', new_care_path(params: { category: 'time together', title: 'pet walk' }) %></li>
           <li><%= link_to 'Play Time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
           <li><%= link_to 'Feedings', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
         </ul>

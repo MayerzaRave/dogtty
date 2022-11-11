@@ -25,8 +25,16 @@ class CaresController < ApplicationController
 
     if params[:query].present?
       @cares = Care.where("title ILIKE ?", "%#{params[:query]}%")
+
     else
       @cares = current_user.cares
+    end
+
+    @cares.each do |care|
+      if care.status == "scheduled" && care.schedule < Time.now
+        care.status = 'missed'
+        care.save
+      end
     end
   end
 
@@ -35,14 +43,23 @@ class CaresController < ApplicationController
     redirect_to cares_path, notice: 'Care was successfully destroyed!'
   end
 
+  def edit
+  end
+
   def update
     if params[:status]
-      @care.status = params[:status]
+      if @care.status == 'scheduled'
+        @care.status = 'completed at time'
+      else
+        @care.status = "completed out of time"
+      end
       @care.update(params.permit(:data))
+
     else
+
       @care.update(care_params)
     end
-    redirect_to cares_path, notice: 'Care was successfully updated!'
+    redirect_to root_path, notice: 'care was successfully updated!'
   end
 
   def create
@@ -65,6 +82,12 @@ class CaresController < ApplicationController
 
   def set_care
     @care = Care.find(params[:id])
+
+    if @care.status == "scheduled" && @care.schedule < Time.now
+      @care.status = 'missed'
+      @care.save
+    end
+
   end
 
   def care_params

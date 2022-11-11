@@ -21,9 +21,18 @@
         </h2>
         <div id="collapse<%= place.id %>" class="accordion-collapse collapse in" aria-labelledby="heading<%= place.id %>" data-bs-parent="#accordionExample">
           <div class="accordion-body">
+
+
+
+
             <% place.cares.each do |care| %>
               <%= link_to care.title, care_path(care) %>
             <% end %>
+
+
+
+
+
           </div>
         </div>
       </div>

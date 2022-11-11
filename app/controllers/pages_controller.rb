@@ -6,8 +6,17 @@ class PagesController < ApplicationController
     # @cares = Care.where(schedule: start_date.beginning_of_week..start_date.end_of_week)
     if user_signed_in?
 
+
       @cares = current_user.cares
-      @cares = @cares.select { |care| care.status == 'scheduled' }
+
+      @cares.each do |care|
+        if care.status == "scheduled" && care.schedule < Time.now
+          care.status = 'missed'
+          care.save
+        end
+      end
+
+      @cares = @cares.select { |care| care.status == 'scheduled' || care.status == 'missed' }
     else
       @cares = []
     end

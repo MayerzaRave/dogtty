@@ -64,6 +64,6 @@
     <p>Can you see al stats Of your cares added (completes and missing)</p>
   </div>
   <div class="stats">
-    <%= pie_chart User.group_by_day(:created_at).count %> <!--Camilo, aca tienes tu espacio para poner las stats-->
+    <%= pie_chart @stats %> <!--Camilo, aca tienes tu espacio para poner las stats-->
   </div>
 </section>
