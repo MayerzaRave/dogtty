@@ -11,6 +11,8 @@ class PetsController < ApplicationController
                "Missed and rescheduled" => @missed,
                "Completed at time" => @at_time,
                "Completed out of time" => @out_time }
+
+    # @desease = Desease.new
   end
 
   def show
