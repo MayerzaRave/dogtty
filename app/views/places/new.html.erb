@@ -1,9 +1,8 @@
-
 <div class="map-form">
   <div class="form-map-side">
     <%= simple_form_for @place do |f| %>
       <div class="info-map">
-        <h1>Add a new place</h1>
+        <h1>Set a new place</h1><br>
         <%= f.input :name %>
         <%= f.input :contact %>
         <%= f.button :submit, 'Set!', class: 'btn btn-danger mb-5' %>
