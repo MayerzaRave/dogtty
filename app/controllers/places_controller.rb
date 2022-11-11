@@ -10,6 +10,16 @@ class PlacesController < ApplicationController
         image_url: helpers.asset_url("marker.png")
       }
     end
+
+
+    @cares = current_user.cares
+    @cares.each do |care|
+      if care.status == "scheduled" && care.schedule < Time.now
+        care.status = 'missed'
+        care.save
+      end
+    end
+
   end
 
   def new

@@ -7,8 +7,16 @@
 
 <div class="row m-3">
   <% @pets.each do |pet| %>
+
+
+
+
     <section class="bg-color">
-      <div class="details-container">
+
+
+      <div class="d-flex align-items-start flex-column mb-3">
+        <div class="mb-auto p-2">
+        <div class="details-container">
         <div class="row align-items-center">
           <div class="col-md-7 align-items-center">
             <div class="row details-pet">
@@ -28,15 +36,25 @@
                 <label>Weight</label>
                 <p><%= pet.weight %> <%= pet.weight_unit %></p>
               </div>
+
+              <div class="col-md-6 text-center">
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-plus"></i> disease
+          </button>
+              </div>
+
               <div class="col-md-6 text-center">
                 <%# aca iran los cuidados %>
                 <%# pues no puse los cuidados aqui y de igual manera qudaron bien para mi gusto xD %>
               </div>
             </div>
             <span></span>
-            <div class="row cares">
-              <h6 class="pending-cares">Pending cares</h6>
-            </div>
+
+
+
+
+
+
           </div>
           <div class = "col-md-5">
             <div class="align-items-center">
@@ -46,24 +64,74 @@
                 <% else %>
                   <%= image_tag "pet.jpg", size: "auto", style: "border-radius: 5%", class: "card-img-top"%>
                 <% end %>
-              <div class = "col">
-                <%= link_to "New Care", new_care_path , class: "btn btn-info btn-margin" %>
-                <%= link_to "PDF", pet_path(pet, format: :pdf) , class: "btn btn-danger btn-margin" %>
-              </div>
+
+
             </div>
           </div>
         </div>
       </div>
+        </div>
+
+
+        <div class="p-2">
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+                <%= link_to "New Care", new_care_path , class: "btn btn-info btn-margin" %>
+                <%= link_to pet_path(pet, format: :pdf), class: "btn btn-danger btn-margin" do %>
+                  Medical History  <i class="fa-solid fa-file-arrow-down"></i>
+                <% end %>
+                </div>
+
+
+        </div>
+
+
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">New disease</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                New disease form
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
     </section>
   <% end %>
 </div>
 
 <section class="stats-section">
   <div class="stats-content">
-    <h2>Your Stats</h2>
-    <p>Can you see al stats Of your cares added (completes and missing)</p>
+    <h2>How well are you doing</h2>
+
   </div>
   <div class="stats">
-    <%= pie_chart User.group_by_day(:created_at).count %> <!--Camilo, aca tienes tu espacio para poner las stats-->
+    <%= pie_chart @stats %>
   </div>
 </section>

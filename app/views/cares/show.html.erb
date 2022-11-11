@@ -5,17 +5,45 @@
 
     <div>
       <% if @pet.photo.attached? %>
-        <%= cl_image_tag @pet.photo.key, class: "card-img-care" %>
+        <%= cl_image_tag @pet.photo.key, height: 400, class: "card-img-care" %>
       <% else %>
         <%= image_tag "pet.jpg", size: "auto", class: "card-img-care"%>
       <% end %>
+
+
       <div class="btn-container">
-        <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info br10"  %>
-        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"btn btn-danger br10"%>
+
+        <% if @care.status == 'scheduled' || (@care.status == 'missed' && @care.schedule > Time.now) %>
+          <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info"  %>
+        <% end %>
+        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"btn btn-danger"%>
       </div>
     </div>
 
+
+
+    <% if @care.status == 'missed' && @care.schedule < Time.now %>
+
+
+
     <div class="care-info-container">
+
+    <h1>Ups!!! You missed It 🧐</h1>
+
+
+        <div class="home-button">
+        <%= link_to "Reschedule", edit_care_path(@care), class:"btn btn-info" %>
+
+        </div>
+      </div>
+
+
+
+
+    <% elsif @care.status == 'scheduled' || (@care.status == 'missed' && @care.schedule > Time.now) %>
+
+
+     <div class="care-info-container">
       <h2 class="dark-color"><%= @care.title %></h2>
       <h6 class="theme-color lead">Categoria: <%= @care.category %></h6>
       <p><%= @care.details %></p>
@@ -33,10 +61,34 @@
           </div>
         <% end %>
 
+<<<<<<< HEAD
         <div class="home-button">
           <%= link_to 'Back to list', cares_path, class: 'btn effect effect-4' %>
         </div>
+=======
+>>>>>>> master
       </div>
     </div>
+
+    <% else %>
+
+ <div class="care-info-container">
+      <h2 class="dark-color"><%= @care.title %></h2>
+      <h6 class="theme-color lead">Categoria: <%= @care.category %></h6>
+      <p><%= @care.details %></p>
+
+    </div>
+
+    <% end %>
+
+
+
+
+
+
   </div>
 </div>
+
+<hr>
+
+<%= link_to 'Back to list', cares_path, class: 'ms-5 btn btn-success' %>
