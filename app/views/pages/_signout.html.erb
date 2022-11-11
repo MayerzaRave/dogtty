@@ -62,66 +62,68 @@
 <%# inicio de la seccion services  %>
 
 <div class="container">
-<div id="uno" class="services section-padding">
-  <div class="container1">
-    <div class="section-title">
-      <h2 class="title">Cares</h2>
-      <p class="sub-title">You can schedule</p>
+  <div id="uno" class="services section-padding">
+    <div class="container1">
+      <div class="section-title">
+        <h2 class="title">Cares</h2>
+        <p class="sub-title">You can schedule</p>
+      </div>
+    </div>
+
+    <div class="row" style="justify-content: space-around;">
+
+      <div class="card">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'walking.svg', class: 'walking' %>
+          </div>
+          <h2>Time together</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'Pet walk', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
+          <li><%= link_to 'Playing time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
+          <li><%= link_to 'Feeding', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
+        </ul>
+        <div class="toggle">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="card card2">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'vaccine.png', class: 'walking' %>
+          </div>
+          <h2>Health</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
+          <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
+          <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
+        </ul>
+        <div class="toggle toggle2">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
+
+
+      <div class="card card3">
+        <div class="content">
+          <div class="profile">
+            <%= image_tag 'facepalm.svg', class: 'walking' %>
+          </div>
+          <h2>Beuty</h2>
+        </div>
+        <ul class="nav1">
+          <li><%= link_to 'shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
+          <li><%= link_to 'nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
+        </ul>
+        <div class="toggle toggle3">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="row" style="justify-content: space-around;">
-
-    <div class="card">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'walking.svg', class: 'walking' %>
-        </div>
-        <h2>Time together</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'Pet walk', new_care_path(params: { category: 'time togueter', title: 'pet walk' }) %></li>
-        <li><%= link_to 'Playing time', new_care_path(params: { category: 'time togueter', title: 'playing time' }) %></li>
-        <li><%= link_to 'Feeding', new_care_path(params: { category: 'time togueter', title: 'feeding' }) %></li>
-      </ul>
-      <div class="toggle">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
-
-    <div class="card card2">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'vaccine.png', class: 'walking' %>
-        </div>
-        <h2>Health</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'Vaccination', new_care_path(params: { category: 'health', title: 'vaccination' }) %></li>
-        <li><%= link_to 'Deworming', new_care_path(params: { category: 'health', title: 'deworming' }) %></li>
-        <li><%= link_to 'Consultation', new_care_path(params: { category: 'health', title: 'consultation' }) %></li>
-      </ul>
-      <div class="toggle toggle2">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
-
-
-    <div class="card card3">
-      <div class="content">
-        <div class="profile">
-          <%= image_tag 'facepalm.svg', class: 'walking' %>
-        </div>
-        <h2>Beuty</h2>
-      </div>
-      <ul class="nav1">
-        <li><%= link_to 'shower', new_care_path(params: { category: 'beauty', title: 'shower' }) %></li>
-        <li><%= link_to 'nails cutting', new_care_path(params: { category: 'beauty', title: 'nails cutting' }) %></li>
-      </ul>
-      <div class="toggle toggle3">
-        <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      </div>
-    </div>
 </div>
 
 
