@@ -22,7 +22,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "pet",
+        render pdf: "medical_history",
                template: "pets/show",
                formats: [:pdf],
                disposition: 'attachment',
