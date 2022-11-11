@@ -25,7 +25,7 @@ img {
     content: '';
     position: absolute;
     left: 0;
-    top: 50px;
+    top: 0;
     height: 200px;
     width: 200px;
     transform: translate(-50%, -50%);
@@ -256,7 +256,6 @@ img {
 .about-text h3{
   margin: 16px 0;
   font-size: 20px;
-  background: none;
 }
 
 .about-text ul li {

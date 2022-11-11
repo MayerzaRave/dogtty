@@ -1,0 +1,181 @@
+[33m9a25633[m[33m ([m[1;36mHEAD -> [m[1;32muser-view[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{0}: merge master: Fast-forward
+[33me1aab32[m HEAD@{1}: checkout: moving from master to user-view
+[33m9a25633[m[33m ([m[1;36mHEAD -> [m[1;32muser-view[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{2}: pull origin master: Fast-forward
+[33me1aab32[m HEAD@{3}: checkout: moving from user-view to master
+[33me1aab32[m HEAD@{4}: merge master: Fast-forward
+[33m6a995f2[m[33m ([m[1;31morigin/user-view[m[33m)[m HEAD@{5}: checkout: moving from master to user-view
+[33me1aab32[m HEAD@{6}: pull origin master: Fast-forward
+[33m6a995f2[m[33m ([m[1;31morigin/user-view[m[33m)[m HEAD@{7}: checkout: moving from user-view to master
+[33m6a995f2[m[33m ([m[1;31morigin/user-view[m[33m)[m HEAD@{8}: merge master: Fast-forward
+[33mb960e14[m HEAD@{9}: checkout: moving from master to user-view
+[33m6a995f2[m[33m ([m[1;31morigin/user-view[m[33m)[m HEAD@{10}: pull origin master: Fast-forward
+[33m31d0d30[m HEAD@{11}: checkout: moving from user-view to master
+[33mb960e14[m HEAD@{12}: commit: Index_pets and Care_show views completes
+[33m31d0d30[m HEAD@{13}: merge master: Fast-forward
+[33m410857d[m HEAD@{14}: checkout: moving from master to user-view
+[33m31d0d30[m HEAD@{15}: pull origin master: Fast-forward
+[33m2449bc4[m HEAD@{16}: checkout: moving from user-view to master
+[33m410857d[m HEAD@{17}: commit: New Care Form Template Finished
+[33m0a15ea4[m HEAD@{18}: commit (merge): New Features like stats Added
+[33mf8fc73b[m HEAD@{19}: checkout: moving from master to user-view
+[33m2449bc4[m HEAD@{20}: pull origin master: Fast-forward
+[33m62181bd[m HEAD@{21}: checkout: moving from user-view to master
+[33mf8fc73b[m HEAD@{22}: commit: Footer Added
+[33m032aa9c[m HEAD@{23}: commit (merge): MINOR CHANGES
+[33mdf50235[m HEAD@{24}: checkout: moving from master to user-view
+[33m62181bd[m HEAD@{25}: pull origin master: Fast-forward
+[33m2878161[m HEAD@{26}: checkout: moving from user-view to master
+[33mdf50235[m HEAD@{27}: commit: minor Changes Added
+[33me270e3e[m HEAD@{28}: commit: Minor changes in some files
+[33md13c7d5[m HEAD@{29}: commit: New Files Added
+[33mafe0428[m HEAD@{30}: commit: Design login a signup form completed and functional
+[33m724f184[m HEAD@{31}: checkout: moving from master to user-view
+[33m2878161[m HEAD@{32}: pull origin master: Fast-forward
+[33m724f184[m HEAD@{33}: checkout: moving from user-view to master
+[33m724f184[m HEAD@{34}: merge master: Fast-forward
+[33ma275a73[m HEAD@{35}: checkout: moving from master to user-view
+[33m724f184[m HEAD@{36}: pull origin master: Fast-forward
+[33m9e68e50[m HEAD@{37}: checkout: moving from user-view to master
+[33ma275a73[m HEAD@{38}: commit (merge): icon and image descrption added
+[33m6c3f58e[m HEAD@{39}: checkout: moving from master to user-view
+[33m9e68e50[m HEAD@{40}: pull origin master: Fast-forward
+[33ma3959f7[m HEAD@{41}: checkout: moving from user-view to master
+[33m6c3f58e[m HEAD@{42}: commit: metadata added
+[33mb24b705[m HEAD@{43}: commit: page 500 completed
+[33mfa21124[m HEAD@{44}: merge master: Merge made by the 'recursive' strategy.
+[33m41f395a[m HEAD@{45}: checkout: moving from master to user-view
+[33ma3959f7[m HEAD@{46}: pull origin master: Fast-forward
+[33m9b13c04[m HEAD@{47}: checkout: moving from user-view to master
+[33m41f395a[m HEAD@{48}: commit: Page 404 Completed
+[33m51f3545[m HEAD@{49}: commit: JS nav solved
+[33m9b13c04[m HEAD@{50}: merge master: Fast-forward
+[33m66210f9[m HEAD@{51}: checkout: moving from master to user-view
+[33m9b13c04[m HEAD@{52}: pull origin master: Fast-forward
+[33mb0eb912[m HEAD@{53}: checkout: moving from user-view to master
+[33m66210f9[m HEAD@{54}: checkout: moving from master to user-view
+[33mb0eb912[m HEAD@{55}: pull origin master: Fast-forward
+[33m66210f9[m HEAD@{56}: checkout: moving from user-view to master
+[33m66210f9[m HEAD@{57}: checkout: moving from master to user-view
+[33m66210f9[m HEAD@{58}: checkout: moving from user-view to master
+[33m66210f9[m HEAD@{59}: checkout: moving from master to user-view
+[33m66210f9[m HEAD@{60}: checkout: moving from user-view to master
+[33m66210f9[m HEAD@{61}: merge master: Fast-forward
+[33m1b3b77c[m HEAD@{62}: checkout: moving from master to user-view
+[33m66210f9[m HEAD@{63}: pull origin master: Fast-forward
+[33mce0918f[m HEAD@{64}: checkout: moving from user-view to master
+[33m1b3b77c[m HEAD@{65}: commit (merge): Home Design complete, adapted to future changes
+[33md838773[m HEAD@{66}: checkout: moving from master to user-view
+[33mce0918f[m HEAD@{67}: pull origin master: Fast-forward
+[33m073d2eb[m HEAD@{68}: checkout: moving from user-view to master
+[33md838773[m HEAD@{69}: commit: Home Design complete, adapted to future changes
+[33m40249ec[m HEAD@{70}: commit: Added doodles images for background
+[33m073d2eb[m HEAD@{71}: merge master: Fast-forward
+[33m361712c[m HEAD@{72}: checkout: moving from master to user-view
+[33m073d2eb[m HEAD@{73}: pull origin master: Fast-forward
+[33mcb23b1c[m HEAD@{74}: pull origin master: Fast-forward
+[33m361712c[m HEAD@{75}: checkout: moving from user-view to master
+[33m361712c[m HEAD@{76}: merge master: Fast-forward
+[33m37b00ef[m HEAD@{77}: checkout: moving from master to user-view
+[33m361712c[m HEAD@{78}: pull origin master: Fast-forward
+[33m7b3392f[m HEAD@{79}: checkout: moving from user-view to master
+[33m37b00ef[m HEAD@{80}: commit: Added mini header to index cares view
+[33mc77c613[m HEAD@{81}: commit: sign in view complete (Stats Section Missing)
+[33m79d6052[m HEAD@{82}: checkout: moving from master to user-view
+[33m7b3392f[m HEAD@{83}: checkout: moving from user-view to master
+[33m79d6052[m HEAD@{84}: commit: changes added
+[33m68a7cfd[m HEAD@{85}: merge master: Merge made by the 'recursive' strategy.
+[33mc181d84[m HEAD@{86}: checkout: moving from master to user-view
+[33m7b3392f[m HEAD@{87}: pull origin master: Fast-forward
+[33md15d860[m HEAD@{88}: checkout: moving from user-view to master
+[33mc181d84[m HEAD@{89}: commit: nada
+[33md15d860[m HEAD@{90}: reset: moving to HEAD
+[33md15d860[m HEAD@{91}: reset: moving to HEAD
+[33md15d860[m HEAD@{92}: merge master: Fast-forward
+[33mc619419[m HEAD@{93}: checkout: moving from master to user-view
+[33md15d860[m HEAD@{94}: pull origin master: Fast-forward
+[33m772d8d0[m HEAD@{95}: checkout: moving from user-view to master
+[33mc619419[m HEAD@{96}: commit: NECESITO AYUDA PARA LOS TOOLTIPS
+[33m6e919f6[m HEAD@{97}: commit: NECESITO AYUDA PARA LOS TOOLTIPS
+[33m772d8d0[m HEAD@{98}: merge master: Fast-forward
+[33m8438460[m HEAD@{99}: checkout: moving from master to user-view
+[33m772d8d0[m HEAD@{100}: pull origin master: Fast-forward
+[33mfd668c0[m HEAD@{101}: pull origin master: Fast-forward
+[33me65f9d3[m HEAD@{102}: checkout: moving from user-view to master
+[33m8438460[m HEAD@{103}: commit: changes added1
+[33m16f43e9[m HEAD@{104}: merge master: Merge made by the 'recursive' strategy.
+[33maf39fae[m HEAD@{105}: checkout: moving from master to user-view
+[33me65f9d3[m HEAD@{106}: pull origin master: Fast-forward
+[33mc7d014b[m HEAD@{107}: checkout: moving from user-view to master
+[33maf39fae[m HEAD@{108}: checkout: moving from master to user-view
+[33mc7d014b[m HEAD@{109}: checkout: moving from user-view to master
+[33maf39fae[m HEAD@{110}: commit (merge): changes added
+[33mdf23afd[m HEAD@{111}: checkout: moving from master to user-view
+[33mc7d014b[m HEAD@{112}: pull origin master: Fast-forward
+[33mb443b2a[m HEAD@{113}: checkout: moving from user-view to master
+[33mdf23afd[m HEAD@{114}: commit: delete
+[33m84a31df[m HEAD@{115}: checkout: moving from user-view to user-view
+[33m84a31df[m HEAD@{116}: pull origin master: Fast-forward
+[33m9aa480b[m HEAD@{117}: commit: width
+[33m842cdc3[m HEAD@{118}: commit: Diseño de la homepage finalizado (Sujeta a cambios minimos en el futuro)
+[33mea88ba3[m HEAD@{119}: commit: Diseño de la navbar finalizado
+[33m543c189[m HEAD@{120}: commit: Valores predefinidos de colores y fuentes para los proximos diseños
+[33m54f5798[m HEAD@{121}: commit: Nuevas imagenes agregadas
+[33m9290f9e[m HEAD@{122}: commit: Minor changes
+[33mf6ed491[m HEAD@{123}: reset: moving to HEAD~1
+[33md540e72[m HEAD@{124}: checkout: moving from master to user-view
+[33mb443b2a[m HEAD@{125}: checkout: moving from user-view to master
+[33md540e72[m HEAD@{126}: commit: no
+[33mf6ed491[m HEAD@{127}: merge master: Merge made by the 'recursive' strategy.
+[33m11debcb[m HEAD@{128}: checkout: moving from master to user-view
+[33mb443b2a[m HEAD@{129}: pull origin master: Fast-forward
+[33m7434b81[m HEAD@{130}: checkout: moving from user-view to master
+[33m11debcb[m HEAD@{131}: commit: Dont look
+[33md868df1[m HEAD@{132}: checkout: moving from master to user-view
+[33m7434b81[m HEAD@{133}: checkout: moving from user-view to master
+[33md868df1[m HEAD@{134}: commit: Added Hover to services card
+[33m6d9eda8[m HEAD@{135}: checkout: moving from master to user-view
+[33m7434b81[m HEAD@{136}: checkout: moving from user-view to master
+[33m6d9eda8[m HEAD@{137}: commit: Show view first design completed
+[33m7434b81[m HEAD@{138}: merge master: Fast-forward
+[33md690759[m HEAD@{139}: checkout: moving from master to user-view
+[33m7434b81[m HEAD@{140}: pull origin master: Fast-forward
+[33maab75b0[m HEAD@{141}: checkout: moving from user-view to master
+[33md690759[m HEAD@{142}: commit: card design to care index completed
+[33maab75b0[m HEAD@{143}: merge master: Fast-forward
+[33m864455e[m HEAD@{144}: checkout: moving from master to user-view
+[33maab75b0[m HEAD@{145}: pull origin master: Fast-forward
+[33mc4e8d78[m HEAD@{146}: checkout: moving from user-view to master
+[33m864455e[m HEAD@{147}: checkout: moving from master to user-view
+[33mc4e8d78[m HEAD@{148}: checkout: moving from user-view to master
+[33m864455e[m HEAD@{149}: commit (merge): Added Mayerza and Alejandro chanes
+[33m18f360e[m HEAD@{150}: checkout: moving from master to user-view
+[33mc4e8d78[m HEAD@{151}: pull origin master: Fast-forward
+[33m8f65992[m HEAD@{152}: checkout: moving from user-view to master
+[33m18f360e[m HEAD@{153}: commit: Merge branch 'master' into user-view
+[33me2f7c33[m HEAD@{154}: commit: Added new route to about page
+[33m5bcb04c[m HEAD@{155}: commit: JS added to desplegable service
+[33md9333f6[m HEAD@{156}: commit: JS added to desplegable service
+[33m0f03f64[m HEAD@{157}: checkout: moving from master to user-view
+[33m8f65992[m HEAD@{158}: checkout: moving from user-view to master
+[33m0f03f64[m HEAD@{159}: checkout: moving from master to user-view
+[33m8f65992[m HEAD@{160}: checkout: moving from user-view to master
+[33m0f03f64[m HEAD@{161}: commit (merge): Changes accepted
+[33m7809225[m HEAD@{162}: checkout: moving from master to user-view
+[33m8f65992[m HEAD@{163}: pull origin master: Fast-forward
+[33m080a886[m HEAD@{164}: checkout: moving from user-view to master
+[33m7809225[m HEAD@{165}: commit: First home design complete
+[33m8b622a6[m HEAD@{166}: commit: Added button to new view, I think jajajaja
+[33m492f346[m HEAD@{167}: commit: Added JS to animation
+[33m4e7f0a3[m HEAD@{168}: commit: Added components to navbar and homepage view
+[33m5538e85[m HEAD@{169}: commit: Added dependencies to destroy a pet
+[33m8f44c98[m HEAD@{170}: commit: Images added
+[33me5a4058[m HEAD@{171}: commit: AOS.JS added
+[33mb09728e[m HEAD@{172}: commit: Create files to user history where update his pet
+[33m74e8ec5[m HEAD@{173}: commit: added update and edit action
+[33m080a886[m HEAD@{174}: checkout: moving from user-view to user-view
+[33m080a886[m HEAD@{175}: checkout: moving from master to user-view
+[33m080a886[m HEAD@{176}: checkout: moving from user-view to master
+[33m080a886[m HEAD@{177}: checkout: moving from master to user-view
+[33m080a886[m HEAD@{178}: checkout: moving from user-view to master
+[33m080a886[m HEAD@{179}: checkout: moving from master to user-view
+[33m080a886[m HEAD@{180}: clone: from git@github.com:MayerzaRave/dogtty.git

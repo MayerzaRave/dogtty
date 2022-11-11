@@ -1,42 +1,49 @@
+<br><br><br><br><br>
 
+<div class="container">
+  <div class="d-flex justify-content-between ms-5">
 
-<div class="care-container">
-  <div class="d-flex ms-5">
-
-    <div>
+    <div style="width: 300px;">
       <% if @pet.photo.attached? %>
-        <%= cl_image_tag @pet.photo.key, class: "card-img-care" %>
+        <%= cl_image_tag @pet.photo.key, class: "card-img-top" %>
       <% else %>
-        <%= image_tag "pet.jpg", size: "auto", class: "card-img-care"%>
+        <%= image_tag "pet.jpg", size: "auto", class: "card-img-top"%>
       <% end %>
-      <div class="btn-container">
-        <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info"  %>
-        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"btn btn-danger"%>
-      </div>
     </div>
 
-    <div class="care-info-container">
+    <div class="container">
       <h2 class="dark-color"><%= @care.title %></h2>
       <h6 class="theme-color lead">Categoria: <%= @care.category %></h6>
       <p><%= @care.details %></p>
 
-      <div>
+
+      <div class="d-flex justify-content-between">
         <%= simple_form_for @care do |f| %>
           <div class="form-inputs">
             <div class="form-field" style="width: 500px;">
-              <%= f.association :place, label: 'Set a place for this care 👇', as: :select, collection: Place.all, placeholder: 'Select a place' %>
+              <%= f.association :place, label: 'Set a place for this care 👇', as: :select, collection: Place.all %>
             </div>
           </div>
 
           <div class="text-end form-actions">
             <%= f.button :submit, 'Save', class: 'btn btn-info' %>
           </div>
-        <% end %>
+          <% end %>
+      </div>
 
-        <div class="home-button">
-          <%= link_to 'Back to list', cares_path, class: 'btn btn-success' %>
-        </div>
+
+
+
+      <div class="d-flex justify-content-between" style="width: 300px;">
+        <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info w-100"  %>
+        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"col btn btn-danger"%>
       </div>
     </div>
+
+
   </div>
 </div>
+
+<hr>
+
+<%= link_to 'Volver a la lista', cares_path, class: 'ms-5 btn btn-warning' %>
