@@ -3,6 +3,14 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    @scheduled = Care.where(status: 'scheduled').count
+    @missed = Care.where(status: 'missed').count
+    @at_time = Care.where(status: 'completed at time').count
+    @out_time = Care.where(status: 'completed out of time').count
+    @stats = { "Scheduled" => @scheduled,
+               "Missed and rescheduled" => @missed,
+               "Completed at time" => @at_time,
+               "Completed out of time" => @out_time }
   end
 
   def show

@@ -1,0 +1,45 @@
+<div class="new-care-container">
+  <div class="photo-container">
+    <h1 style="font-size: 30px;"><i class="fa-solid fa-paw"></i> New Care</h1>
+    <div class="puppi">
+      <%= image_tag "new.avif", style:"height:100%; width: auto;" %>
+    </div>
+  </div>
+  <div class="right-container">
+    <header>
+      <h1>Yay, puppies! Ensure your pets gets the best care!</h1><br>
+      <%= simple_form_for @care do |f| %>
+
+
+        <% unless @care.persisted? %>
+          <%= f.association :pet, label: 'I want this Care for 👇', as: :check_boxes, collection: @pets, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <% end %>
+
+        <%= f.label :Category, class: 'label-service' %>
+        <%= f.input :category, collection: CATEGORIES, selected: 1, class: "input-text", placeholder: ' ', label: false %>
+
+        <%= f.label :Title, class: 'label-service' %>
+        <%= f.input :title, collection: CARES, selected: 1, class: "input-text", placeholder: ' ', label: false %>
+
+        <%= f.label :Schedule, class: 'label-service' %>
+        <%= f.input :schedule, as: :string, required: true, input_html: {class: "datepicker"}, class: "input-text", label: false, placeholder: 'Select a date here' %>
+
+        <%= f.label :Details, class: 'label-service' %>
+        <%= f.input :details, label: false, class: 'input-text', placeholder: ' ' %>
+
+    </header>
+    <footer class="border-top border-secondary">
+      <div class="new-care-footer d-flex justify-content-between">
+        <button>Back To Home</button>
+
+
+        <% if @care.persisted? %>
+          <%= f.button :submit, 'Save changes', class: 'btn btn-info' %>
+        <% else %>
+          <%= f.button :submit, 'Schedule!', class: 'btn btn-info' %>
+        <% end %>
+      </div>
+      <% end %>
+    </footer>
+  </div>
+</div>
