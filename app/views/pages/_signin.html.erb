@@ -4,7 +4,7 @@
   <div class="container1">
     <div class="row1">
       <div class="welcome-text">
-        <h1>Welcomeback<br><%= current_user.first_name %></h1>
+        <h1>Welcome back<br><%= current_user.first_name %></h1>
         <p>Here you will find all the info and the dates scheduled for you and your pets.</p>
         <%= link_to 'Schedule a Care', new_care_path, class: 'btn1' %>
       </div>
@@ -28,7 +28,7 @@
 
 <section class="calendar">
   <div class="section-title">
-    <p class="sub-title">Here you have the dates for this week</p>
+    <p class="sub-title">These are your cares for this week</p>
   </div>
 
   <div class="calendar-simple" style="padding-left: 165px; padding-right: 165px;">
@@ -108,6 +108,7 @@
     <% end %>
   </div>
 </section>
+<div class="container text-end"><%= link_to "View all", cares_path, class:"btn btn-warning me-5" %></div>
 
 <!--Inicio de la seccion de servicios-->
 

@@ -33,7 +33,7 @@
 
         <div class="home-button">
         <%= link_to "Reschedule", edit_care_path(@care), class:"btn btn-info" %>
-          <%= link_to 'Back to list', cares_path, class: 'btn btn-success' %>
+
         </div>
       </div>
 
@@ -61,9 +61,6 @@
           </div>
         <% end %>
 
-        <div class="home-button">
-          <%= link_to 'Back to list', cares_path, class: 'btn btn-success' %>
-        </div>
       </div>
     </div>
 
@@ -74,12 +71,6 @@
       <h6 class="theme-color lead">Categoria: <%= @care.category %></h6>
       <p><%= @care.details %></p>
 
-      <div>
-
-        <div class="home-button">
-          <%= link_to 'Back to list', cares_path, class: 'btn btn-success' %>
-        </div>
-      </div>
     </div>
 
     <% end %>
@@ -91,3 +82,7 @@
 
   </div>
 </div>
+
+<hr>
+
+<%= link_to 'Back to list', cares_path, class: 'ms-5 btn btn-success' %>
