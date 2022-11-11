@@ -7,8 +7,16 @@
 
 <div class="row m-3">
   <% @pets.each do |pet| %>
+
+
+
+
     <section class="bg-color">
-      <div class="details-container">
+
+
+      <div class="d-flex align-items-start flex-column mb-3" style="height: 200px;">
+        <div class="mb-auto p-2">
+        <div class="details-container">
         <div class="row align-items-center">
           <div class="col-md-7 align-items-center">
             <div class="row details-pet">
@@ -38,9 +46,8 @@
 
 
 
-            <div class="row cares">
-              <h6 class="pending-cares">Pending cares</h6>
-            </div>
+
+
           </div>
           <div class = "col-md-5">
             <div class="align-items-center">
@@ -51,14 +58,35 @@
                   <%= image_tag "pet.jpg", size: "auto", style: "border-radius: 5%", class: "card-img-top"%>
                 <% end %>
 
-                <%= link_to "New Care", new_care_path , class: "w-100 btn btn-info btn-margin" %>
-                <%= link_to pet_path(pet, format: :pdf), class: "w-100 btn btn-danger btn-margin" do %>
-                  Medical History  <i class="fa-solid fa-file-arrow-down"></i>
-                <% end %>
+
             </div>
           </div>
         </div>
       </div>
+        </div>
+
+
+        <div class="p-2">
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+                <%= link_to "New Care", new_care_path , class: "btn btn-info btn-margin" %>
+                <%= link_to pet_path(pet, format: :pdf), class: "btn btn-danger btn-margin" do %>
+                  Medical History  <i class="fa-solid fa-file-arrow-down"></i>
+                <% end %>
+                </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
     </section>
   <% end %>
 </div>
