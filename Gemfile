@@ -60,7 +60,7 @@ gem 'geocoder', '~> 1.8', '>= 1.8.1'
 gem 'chartkick', '~> 4.2', '>= 4.2.1'
 gem 'groupdate', '~> 6.1'
 gem 'wicked_pdf', '~> 2.6', '>= 2.6.3'
-# gem 'wkhtmltopdf-binary', '~> 0.12.6.5', group: :development
+gem 'wkhtmltopdf-binary', '~> 0.12.6.5', group: :development
 gem 'wkhtmltopdf-heroku', '~> 2.12', '>= 2.12.6.0', group: :production
 
 group :development, :test do
