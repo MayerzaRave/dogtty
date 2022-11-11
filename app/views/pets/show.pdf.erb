@@ -1,4 +1,68 @@
-<h1><%= @pet.name %></h1>
+
+<div class="pdf">
+
+  <div class="pet">
+    <%= cl_image_tag(@pet.photo.key, height:200, width: 200) %>
+    <div class="details">
+      <h1><%= @pet.name %></h1>
+    </div>
+  </div>
+
+  <br><hr><br>
+
+  <div>
+
+    <h3>Diseases</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Treatment</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        <% @pet.deseases.each do |disease| %>
+          <tr>
+
+            <td><%= disease.name %></td>
+            <td><%= disease.name %></td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
 
 
-<%= cl_image_tag(@pet.photo.key, width: 400) %>
+<br><hr><br>
+
+
+
+<h3>Vaccinations and deworming</h3>
+  <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        <% @pet.cares do |care| %>
+          <% if care.title == 'vaccination' || care.title == 'deworming' %>
+            <tr>
+
+              <td><%= care.title %></td>
+              <td><%= care.details %></td>
+            </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+
+
+  </div>
+</div>
