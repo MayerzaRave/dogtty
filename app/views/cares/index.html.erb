@@ -1,4 +1,8 @@
-<br><br>
+<div class="places-info text-center" style="margin-top: 7%;">
+  <h1 style="font-weight: 600;">Your appointments</h1>
+  <p style="font-size: 20px">Find all your pending appointments here</p>
+</div>
+
 <div class="container" style="width: 600px;">
   <%= form_with url: cares_path, method: :get, class: "mt-5 d-flex" do %>
     <%= text_field_tag :query,
@@ -27,7 +31,7 @@
             <% end %>
 
             <div class="card-product-infos">
-              <h5 style="width: 230px; background-color: #ffc107"><%= care.title %></h5>
+              <h5 style="width: 230px; background-color: #ffc107; padding-left: 4px;"><%= care.title %></h5>
               <p><strong>Category:</strong> <%= care.category %></p>
               <p><%= care.details %></p>
             </div>
