@@ -1,9 +1,14 @@
-<br><br>
+<div class="places-info text-center" style="margin-top: 7%;">
+  <h1 style="font-weight: 600;">Your Places</h1>
+  <p style="font-size: 20px">Find all your saved places here</p>
+</div>
+
 <div class="container d-flex justify-content-center mt-5" >
 
 
 
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample" style=" margin-right: 30px; margin-bottom: 13px;
+">
 
   <h1 class="text-center" style="background-color: #ffc107;">Saved locations</h1>
     <% @places.each do |place| %>
@@ -13,7 +18,7 @@
 
 
 
-      <div class="accordion-item">
+      <div class="accordion-item" style="margin-bottom: 10px;">
         <h2 class="accordion-header" id="heading<%= place.id %>">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= place.id %>" aria-expanded="true" aria-controls="collapse<%= place.id %>">
             <%= place.name %>
@@ -40,19 +45,16 @@
 
 
     <% end %>
+    <%= link_to 'Add a place', places_new_path, class:"btn btn-danger", style: 'margin: 5px 138px;'  %>
 
   </div>
 
 
 
 
-  <div id='map' style='width: 600px; height: 400px;'
+  <div id='map' style='width: 600px; height: 400px; border-radius: 12px;'
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<hr>
-
-<%= link_to 'Add a place', places_new_path, class:"btn btn-danger ms-5" %>
