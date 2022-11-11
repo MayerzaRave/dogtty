@@ -16,6 +16,7 @@
 @import "cares/show";
 @import "devise/new";
 @import "places/index";
+@import "places/new";
 @import "cares/new";
 @import "cares/new";
 @import "pets/show";
@@ -68,4 +69,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $main-color;
+  border-radius: 6px;
 }

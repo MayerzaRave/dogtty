@@ -10,8 +10,8 @@
         <%= image_tag "pet.jpg", size: "auto", class: "card-img-care"%>
       <% end %>
       <div class="btn-container">
-        <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info"  %>
-        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"btn btn-danger"%>
+        <%= button_to 'Done', care_path(@care), method: :patch, params: { status: 'done' }, class: "btn btn-info br10"  %>
+        <%= link_to "Delete", care_path(@care), data: {turbo_method: :delete}, class:"btn btn-danger br10"%>
       </div>
     </div>
 
@@ -29,12 +29,12 @@
           </div>
 
           <div class="text-end form-actions">
-            <%= f.button :submit, 'Save', class: 'btn btn-info' %>
+            <%= f.button :submit, 'Save', class: 'btn btn-info br10' %>
           </div>
         <% end %>
 
         <div class="home-button">
-          <%= link_to 'Back to list', cares_path, class: 'btn btn-success' %>
+          <%= link_to 'Back to list', cares_path, class: 'btn effect effect-4' %>
         </div>
       </div>
     </div>
