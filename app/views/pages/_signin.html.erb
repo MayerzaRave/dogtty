@@ -37,12 +37,16 @@
 
         <% if Pet.find(care.pet_id).photo.attached? %>
 
-          <div id="tooltip">
-            <span id="tooltip-text"><%= care.title %></span>
-            <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= care.id %>">
+            <div id="tooltip">
+              <span id="tooltip-text"><%= care.title %></span>
+              <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <%= cl_image_tag Pet.find(care.pet_id).photo.key, class: "avatar-bordered my-2", style: "margin-left: 50px;" %>
+              </div>
             </div>
-          </div>
+            <i class="fa-solid fa-circle-info" style="font-size: 20px;"></i>
+          </button>
+
         <% else %>
 
           <div id="tooltip">
@@ -53,12 +57,6 @@
           </div>
 
         <% end %>
-
-
-
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<%= care.id %>">
-          View details
-        </button>
 
 
         <div class="modal fade" id="exampleModal<%= care.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

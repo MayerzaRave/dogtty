@@ -6,7 +6,8 @@ class PlacesController < ApplicationController
         name: place.name,
         lat: place.latitude,
         lng: place.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { place: })
+        info_window: render_to_string(partial: "info_window", locals: { place: }),
+        image_url: helpers.asset_url("marker.png")
       }
     end
   end
